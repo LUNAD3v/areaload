@@ -56,4 +56,12 @@ Edit 'index.php' to meet your need.
 
 Good to go!
 
+# TODO
 
+- [ ] Add image captcha to prevent script auto submit
+- [ ] On server file validation & malicious code scan
+
+# Authors
+
+[@n0vad3v](https://github.com/n0vad3v)
+[@allenliu](https://github.com/allenliu123)
