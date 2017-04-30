@@ -1,6 +1,7 @@
 # AreaLoad
 
 Autonomous Rubost External Area Upload System
+[Demo site](https://lunaluna.org/areaload)
 
 # Features
 
@@ -41,6 +42,9 @@ location /sec{
 }
 
 location /network{
+	return 403;
+}
+location /cbase{
 	return 403;
 }
 ```
