@@ -1,0 +1,162 @@
+<?php
+  $number1 = rand(0,30);
+  $number2 = rand(0,10);
+  $result = $number1 + $number2;
+ ?>
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>AreaLoad文件上传系统</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="./css/mdb-p.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active"><a href="#">首页</a></li>
+          <li role="presentation"><a href="./problem.php">申请重新上传</a></li>
+          <li role="presentation"><a href="./uploaded.php">已经上传的学生列表</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">AreaLoad</h3>
+    </div>
+
+    <div class="jumbotron" style="opacity: 0.8">
+          <h1>欢迎来到AreaLoad</h1>
+          <small>Autonomous Rubost External Area Upload System</small>
+          <p class="lead">一个稳定，健壮的文件上传平台！</p>
+        </div>
+
+  <div class="jumbotron" style="opacity: 0.8">
+    <div class="row marketing">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+        <h2>Web技术基础结业报告上传要求</h2>
+        <ul>
+        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
+        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
+        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
+        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
+        <li>6.提交截止时间为14周周四下午3点</li>
+      </ul>
+      </div>
+
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+        <h2>C语言程序设计实验程序上传要求</h2>
+        <ul>
+        <li>1.请根据自己的学习情况编写程序</li>
+        <li>2.总共需要提交五个大实验要求的程序</li>
+        <li>3.每个程序虽然都有参考代码，但你提交的程序一定是你自己编写的！</li>
+        <li>4.只提交.c源文件，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.每周的实验作业提交时间截止到下周实验前即周四</li>
+      </div>
+    </div>
+    <div class="row marketing">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+        <h2>网络安全</h2>
+        <ul>
+        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
+        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
+        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
+        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
+        <li>6.提交截止时间为14周周四下午3点</li>
+      </ul>
+      </div>
+
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+        <h2>大学计算机基础</h2>
+        <ul>
+        <li>1.请根据自己的学习情况编写程序</li>
+        <li>2.总共需要提交五个大实验要求的程序</li>
+        <li>3.每个程序虽然都有参考代码，但你提交的程序一定是你自己编写的！</li>
+        <li>4.只提交.c源文件，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.每周的实验作业提交时间截止到下周实验前即周四</li>
+      </div>
+    </div>
+    <div class="row marketing">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+        <h2>计算机网络</h2>
+        <ul>
+        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
+        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
+        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
+        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
+        <li>6.提交截止时间为14周周四下午3点</li>
+      </ul>
+      </div>
+
+    </div>
+</div>
+
+<div class="jumbotron" style="opacity: 0.8">
+  <div class="page-header">
+      <h1>上传课程</h1>
+  </div><!--/ header -->
+  <div class="list-group">
+    <a href="./web.php" class="list-group-item">Web技术基础</a>
+    <a href="./c.php" class="list-group-item">C语言程序设计</a>
+    <a href="./sec.php" class="list-group-item">网络安全</a>
+    <a href="./cbase.php" class="list-group-item">大学计算机基础</a>
+    <a href="./network.php" class="list-group-item">计算机网络</a>
+  </div>
+  </div>
+
+
+  </div> <!-- /container -->
+  <aside id="aside" class="sidebar col-sm-3 col-md-2 hidden-print small">
+    <div class="sidebar-content">
+        <div class="sidebar-body collapse in">
+            <p>
+                <img src="./img/bg.jpg" style="position: fixed; bottom: -180px; left: -230px; opacity: 0.6; z-index: -100" alt="">
+            </p>
+        </div>
+    </div>
+</aside>
+    <!-- SCRIPTS -->
+<script>
+function cli(){
+	var na=document.getElementById("fileSelect").value;
+	if(na!=''){
+	document.getElementById("na").value=na;}
+	else
+		document.getElementById("na").value="当前未选择文件";
+	}
+</script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="./js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="./js/mdb.min.js"></script>
+
+
+</body>
+
+</html>
