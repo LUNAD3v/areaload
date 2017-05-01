@@ -6,7 +6,7 @@ Autonomous Rubost External Area Upload System
 # Features
 
 * Limit the students' number range.
-* Limit the file extension
+* Limit the file extension(Default .zip/.7z/.rar)
 * A simple question to prevent robot upload
 * Upload-On-Lock, prevent duplicate upload or system attack
 * Upload file size is limited to 200M
@@ -23,7 +23,7 @@ In Nginx Global config file, add the following line:
 client_max_body_size 200m;
 ```
 
-In Nginx server block specify some rules to protect SQLite Database and Upload file to prevent download by browser.
+In Nginx server block specify some rules to protect SQLite Database and Upload file to prevent download by browser.(Removed /c for 403, prevent 403 on /css)
 ```
 location /db{
     return 403;
@@ -33,9 +33,9 @@ location /web{
     return 403;
 }
 
-location /c{
-    return 403;
-}
+#location /c{
+#    return 403;
+#}
 
 location /sec{
     return 403;
@@ -68,4 +68,5 @@ Good to go!
 # Authors
 
 [@n0vad3v](https://github.com/n0vad3v)
+
 [@allenliu](https://github.com/allenliu123)
