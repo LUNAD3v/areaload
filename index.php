@@ -125,6 +125,7 @@
 
 
   </div> <!-- /container -->
+  <?php include('footer.php') ?>
   <aside id="aside" class="sidebar col-sm-3 col-md-2 hidden-print small">
     <div class="sidebar-content">
         <div class="sidebar-body collapse in">
