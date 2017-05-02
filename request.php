@@ -7,6 +7,14 @@ $true=$num1+$num2;
 $stunumber = $_POST["number"];
 $problem = $_POST["problem"];
 
+//SQL injection prevention
+if (preg_match('(DROP|INSERT|UPDATE|TABLE|drop|insert|update|table)',$problem))
+{
+  header("Location: ./problem.php");
+  exit();
+}
+//End SQL injection prevention
+
 if($usercaptcha != $true)
 {
   header("Location: ./problem.php");
