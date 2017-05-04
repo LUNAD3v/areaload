@@ -48,11 +48,11 @@
 
         <form action="request.php" method="post">
               <input type="text" name="number" placeholder="学号" required>
-              <textarea input type="text" class="form-control" rows="5" name="problem" id="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
+              <textarea input type="text" class="form-control" rows="5" name="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
               <b>请算出答案：</b><input type="text" name="captcha" placeholder="<?php echo $number1?>+ <?php echo $number2?> = ?" required>
               <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
               <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
-              <button class="btn btn-lg btn-danger btn-block" input type="submit" onclick="click()">提交申请</button>
+              <button class="btn btn-lg btn-danger btn-block" input type="submit">提交申请</button>
         </form>
         </div>
       </div>
@@ -67,13 +67,6 @@
         </div>
     </aside>
     <!-- SCRIPTS -->
-  <script>
-		function click(){
-			var str = document.getElementById("#problem").innerHTML; 
-			var txt = str.replace(/'/i,"error");
-			document.getElementById("#problem").innerHTML = txt;
-		}
-	</script>
     <!-- JQuery -->
     <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
 
