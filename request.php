@@ -21,27 +21,6 @@ if($usercaptcha != $true)
   exit();
 }
 
-$accept = 0;
-//For student number validation
-$member = file("./db/trustlist.asc", FILE_IGNORE_NEW_LINES);
-$time=0;
-while($member["$time"])
-{
-  if($stunumber == $member["$time"])
-  {
-    $accept = 1;
-  }
-  $time ++;
-}
-//End student number validation
-
-//If anything failed, return to upload page
-if($accept != 1)
-{
-  header("Location: ./problem.php");
-  exit();
-}
-
   $db = new SQLite3('./db/db.sqlite');
 
   $db->exec("INSERT INTO 'problem' ('number','content') VALUES ('$stunumber', '$problem');");

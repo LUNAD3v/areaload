@@ -3,24 +3,13 @@
 $stunumber = $_POST["number"];
 $stuip = $_SERVER['REMOTE_ADDR'];
 $stuname = $_POST['name'];
-//$member = file("./db/trustlist.asc", FILE_IGNORE_NEW_LINES);
+
 //Connect to uploaded students database
 $upconnect = new PDO('sqlite:./db/db.sqlite');
 $uploaders = $upconnect->query("SELECT * FROM uploaded");
 //Default safety
-$accept = 0;
+$accept = 1;
 
-//For student number validation
-/*$time=0;
-while($member["$time"])
-{
-  if($stunumber == $member["$time"])
-  {
-    $accept = 1;
-  }
-  $time ++;
-}*/
-//End student number validation
 
 //Prevent Duplication
 foreach ($uploaders as $test_key) {
