@@ -13,7 +13,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>AreaLoad文件上传系统</title>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
 
@@ -40,7 +40,7 @@
       </nav>
       <h3 class="text-muted">AreaLoad</h3>
     </div>
-	
+
 	<div class="jumbotron" style="opacity: 0.8">
 		<h2>Web技术基础结业报告上传要求</h2>
         <ul>
@@ -50,6 +50,7 @@
         <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
         <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
         <li>6.提交截止时间为14周周四下午3点</li>
+        <li><b>7.请以自己的学号作为文件名。（例631607040101.zip）</b></li>
         </ul>
     </div>
 
