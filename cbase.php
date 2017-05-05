@@ -41,6 +41,16 @@
       <h3 class="text-muted">AreaLoad</h3>
     </div>
 
+	<div class="jumbotron" style="opacity: 0.8">
+		<h2>大学计算机基础</h2>
+        <ul>
+        <li>1.请根据自己的学习情况编写程序</li>
+        <li>2.总共需要提交五个大实验要求的程序</li>
+        <li>3.每个程序虽然都有参考代码，但你提交的程序一定是你自己编写的！</li>
+        <li>4.只提交.c源文件，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.每周的实验作业提交时间截止到下周实验前即周四</li>
+		</ul>
+	</div>
   <div class="jumbotron" style="opacity: 0.8">
     <h1>上传文件</h1>
     <form action="upload_cbase.php" method="post" enctype="multipart/form-data">

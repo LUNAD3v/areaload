@@ -41,6 +41,18 @@
       <h3 class="text-muted">AreaLoad</h3>
     </div>
 
+	<div class="jumbotron" style="opacity: 0.8">
+		<h2>计算机网络</h2>
+        <ul>
+        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
+        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
+        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
+        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
+        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
+        <li>6.提交截止时间为14周周四下午3点</li>
+        </ul>
+	</div>
+	
   <div class="jumbotron" style="opacity: 0.8">
     <h1>上传文件</h1>
     <form action="upload_network.php" method="post" enctype="multipart/form-data">

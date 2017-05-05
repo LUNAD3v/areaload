@@ -48,81 +48,49 @@
         </div>
 
   <div class="jumbotron" style="opacity: 0.8">
-    <div class="row marketing">
-      <div class="col-lg-6 col-sm-6 col-xs-12">
-        <h2>Web技术基础结业报告上传要求</h2>
-        <ul>
-        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
-        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
-        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
-        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
-        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
-        <li>6.提交截止时间为14周周四下午3点</li>
-      </ul>
-      </div>
-
-      <div class="col-lg-6 col-sm-6 col-xs-12">
-        <h2>C语言程序设计实验程序上传要求</h2>
-        <ul>
-        <li>1.请根据自己的学习情况编写程序</li>
-        <li>2.总共需要提交五个大实验要求的程序</li>
-        <li>3.每个程序虽然都有参考代码，但你提交的程序一定是你自己编写的！</li>
-        <li>4.只提交.c源文件，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
-        <li>5.每周的实验作业提交时间截止到下周实验前即周四</li>
+    <div class="row">
+    <div class="col-sm-6 col-md-2">
+      <div class="thumbnail">
+        <a href="./web.php"><img src="./img/icon-web.png" alt="..."></a>
+        <div class="caption">
+          <h3>Web技术基础</h3>
+        </div>
       </div>
     </div>
-    <div class="row marketing">
-      <div class="col-lg-6 col-sm-6 col-xs-12">
-        <h2>网络安全</h2>
-        <ul>
-        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
-        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
-        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
-        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
-        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
-        <li>6.提交截止时间为14周周四下午3点</li>
-      </ul>
-      </div>
-
-      <div class="col-lg-6 col-sm-6 col-xs-12">
-        <h2>大学计算机基础</h2>
-        <ul>
-        <li>1.请根据自己的学习情况编写程序</li>
-        <li>2.总共需要提交五个大实验要求的程序</li>
-        <li>3.每个程序虽然都有参考代码，但你提交的程序一定是你自己编写的！</li>
-        <li>4.只提交.c源文件，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
-        <li>5.每周的实验作业提交时间截止到下周实验前即周四</li>
+    <div class="col-sm-6 col-md-2">
+      <div class="thumbnail">
+        <a href="./c.php"><img src="./img/icon-c.png" alt="..."></a>
+        <div class="caption">
+          <h3>C语言程序设计</h3>
+        </div>
       </div>
     </div>
-    <div class="row marketing">
-      <div class="col-lg-6 col-sm-6 col-xs-12">
-        <h2>计算机网络</h2>
-        <ul>
-        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
-        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
-        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
-        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
-        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
-        <li>6.提交截止时间为14周周四下午3点</li>
-      </ul>
+    <div class="col-sm-6 col-md-2">
+      <div class="thumbnail">
+        <a href="./sec.php"><img src="./img/icon-sec.png" alt="..."></a>
+        <div class="caption">
+          <h3>网络安全</h3>
+        </div>
       </div>
-
     </div>
+    <div class="col-sm-6 col-md-2">
+      <div class="thumbnail">
+        <a href="./c.php"><img src="./img/icon-cbase.png" alt="..."></a>
+        <div class="caption">
+          <h3>大学计算机基础</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-2">
+      <div class="thumbnail">
+        <a href="./c.php"><img src="./img/icon-network.png" alt="..."></a>
+        <div class="caption">
+          <h3>计算机网络</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="jumbotron" style="opacity: 0.8">
-  <div class="page-header">
-      <h1>上传课程</h1>
-  </div><!--/ header -->
-  <div class="list-group">
-    <a href="./web.php" class="list-group-item">Web技术基础</a>
-    <a href="./c.php" class="list-group-item">C语言程序设计</a>
-    <a href="./sec.php" class="list-group-item">网络安全</a>
-    <a href="./cbase.php" class="list-group-item">大学计算机基础</a>
-    <a href="./network.php" class="list-group-item">计算机网络</a>
-  </div>
-  </div>
-
 
   </div> <!-- /container -->
   <?php include('footer.php') ?>
