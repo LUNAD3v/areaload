@@ -39,17 +39,17 @@ $uploaders = $upconnect->query("SELECT * FROM uploaded");
           <h3 class="text-muted">AreaLoad</h3>
         </div>
 
+        <div class='jumbotron' style="opacity: 0.8">
     <?php
         foreach($uploaders as $row)
         {
-                echo "<div class='jumbotron' style=\"opacity: 0.8\">";
-                echo "<h1>";
-                echo $row['number'];
-                echo "</h1>";
                 echo "<p>";
+                echo $row['number'];
+                echo "|";
                 echo $row['name'];
+                echo "|";
+                echo $row['filename'];
                 echo "</p>";
-                echo "</div>";
         }
     ?>
 

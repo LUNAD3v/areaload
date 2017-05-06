@@ -3,6 +3,7 @@
 $stunumber = $_POST["number"];
 $stuip = $_SERVER['REMOTE_ADDR'];
 $stuname = $_POST['name'];
+$filename = $_FILES['userfile']['name'];
 
 //Connect to uploaded students database
 $upconnect = new PDO('sqlite:./db/db.sqlite');
@@ -108,7 +109,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
           echo $_FILES['userfile']['name'];
           echo "已经成功上传";
           echo "</p>";
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name') VALUES ('$stunumber','$stuip','$stuname');");
+          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename') VALUES ('$stunumber','$stuip','$stuname','$filename');");
         } else {
           echo "<p>";
           echo "文件错误！";
