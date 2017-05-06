@@ -8,7 +8,7 @@ $stunumber = $_POST["number"];
 $problem = $_POST["problem"];
 
 //SQL injection prevention
-if (preg_match('(DROP|INSERT|UPDATE|TABLE|drop|insert|update|table|;)',$problem))
+if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$problem))
 {
   header("Location: ./problem.php");
   exit();
