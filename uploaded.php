@@ -21,7 +21,11 @@ $uploaders = $upconnect->query("SELECT * FROM uploaded");
 
     <!-- Material Design Bootstrap -->
     <link href="./css/mdb.min.css" rel="stylesheet">
-
+<style>
+	table{
+		width:100%;
+	}
+</style>
 
 </head>
 
@@ -41,16 +45,18 @@ $uploaders = $upconnect->query("SELECT * FROM uploaded");
 
         <div class='jumbotron' style="opacity: 0.8">
     <?php
+		
+				
+		echo "<table align='center'><tr align='center'>";
+		
+		echo "<tr><th>学号</th><th>姓名</th><th>文件名</th></tr>";
+				
+		
         foreach($uploaders as $row)
         {
-                echo "<p>";
-                echo $row['number'];
-                echo "|";
-                echo $row['name'];
-                echo "|";
-                echo $row['filename'];
-                echo "</p>";
+			echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td></tr>";
         }
+		echo "</table>";
     ?>
 
       </div> <!-- /container -->
