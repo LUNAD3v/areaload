@@ -72,14 +72,7 @@
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
-          <h4>上传课程</h4>
-          <div class="list-group">
-            <a href="./web.php" class="list-group-item">Web技术基础</a>
-            <a href="" class="list-group-item active">C语言程序设计</a>
-            <a href="sec.php" class="list-group-item">网络安全</a>
-            <a href="./cbase.php" class="list-group-item">大学计算机基础</a>
-            <a href="./network.php" class="list-group-item">计算机网络</a>
-          </div>
+          <p>广泛用于系统与应用软件的开发。具有高效、灵活、功能丰富、表达力强和较高的可移植性等特点，在程序员中备受青睐。是使用最为广泛和最有生命力的编程语言。 </p>
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
       </div><!--<div class="row">-->

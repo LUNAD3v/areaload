@@ -73,14 +73,7 @@
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
-          <h4>上传课程</h4>
-          <div class="list-group">
-            <a href="" class="list-group-item active">Web技术基础</a>
-            <a href="./c.php" class="list-group-item">C语言程序设计</a>
-            <a href="./sec.php" class="list-group-item">网络安全</a>
-            <a href="./cbase.php" class="list-group-item">大学计算机基础</a>
-            <a href="./network.php" class="list-group-item">计算机网络</a>
-          </div>
+          <p>本课程要求了解和掌握HTML5、CSS以及JavaScript等方面的技术，来建设一个中等复杂程度的静态Web页面，同时为今后使用服务器端的动态网页技术构建网站打下基础。</p>
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
       </div><!--<div class="row">-->

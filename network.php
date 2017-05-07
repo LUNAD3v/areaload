@@ -73,14 +73,8 @@
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
-          <h4>上传课程</h4>
-          <div class="list-group">
-            <a href="./web.php" class="list-group-item">Web技术基础</a>
-            <a href="./c.php" class="list-group-item">C语言程序设计</a>
-            <a href="./sec.php" class="list-group-item">网络安全</a>
-            <a href="./cbase.php" class="list-group-item">大学计算机基础</a>
-            <a href="" class="list-group-item active">计算机网络</a>
-          </div>
+          <p>本课程是各专业的核心专业基础课。掌握计算机网络的基本原理，熟悉网络的运行方式，
+            能对相应的网络故障进行诊断与解决，能进行基本的网络管理、规划和维护等，了解当前网络技术的发展。 </p>
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
       </div><!--<div class="row">-->
