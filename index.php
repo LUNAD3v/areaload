@@ -83,7 +83,7 @@
     </div>
     <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
-        <a href="./c.php"><img src="./img/icon-network.png" alt="..."></a>
+        <a href="./network.php"><img src="./img/icon-network.png" alt="..."></a>
         <div class="caption">
           <h3>计算机网络</h3>
         </div>
