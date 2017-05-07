@@ -1,51 +1,3 @@
-<?php
-//Variables
-$stunumber = $_POST["number"];
-$stuip = $_SERVER['REMOTE_ADDR'];
-$stuname = $_POST['name'];
-$filename = $_FILES['userfile']['name'];
-
-//Connect to uploaded students database
-$upconnect = new PDO('sqlite:./db/db.sqlite');
-$uploaders = $upconnect->query("SELECT * FROM uploaded");
-//Default safety
-$accept = 1;
-
-
-//Prevent Duplication
-foreach ($uploaders as $test_key) {
-  if($stunumber == $test_key["number"])
-  {
-    header("Location: ./duplicate.html");
-    exit();
-  }
-}
-//End Duplication Prevention
-
-//Student validation success, now is the captcha section
-$usercaptcha=$_POST["captcha"];
-$num1=$_POST["num1"];
-$num2=$_POST["num2"];
-$true=$num1+$num2;
-if($usercaptcha != $true)
-{
-    $accept = 0;
-}
-//End captcha section
-
-//If anything failed, return to upload page
-if($accept != 1)
-{
-  header("Location: ./c.php");
-  exit();
-}
-
-//If success,keep uploading
-$uploaddir = './c/';
-$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-$FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
-
-?>
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -89,43 +41,10 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
           <h1>上传信息</h1>
       </div><!--/ header -->
       <div class="jumbotron">
-        <?php
-        if (
-          (
-        $FileType == "7z"
-        || $FileType == "rar"
-        || $FileType == "zip"
-          )
-        && ($_FILES["userfile"]["size"] < 204800000))   // 小于 200 mb
-    {
-      if ($_FILES["userfile"]["error"] > 0)
-      {
-        echo "错误：: " . $_FILES["userfile"]["error"] . "<br>";
-      }
-      else
-      {
-        if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-          echo "<p>";
-          echo "文件";
-          echo $_FILES['userfile']['name'];
-          echo "已经成功上传";
-          echo "</p>";
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename') VALUES ('$stunumber','$stuip','$stuname','$filename');");
-        } else {
-          echo "<p>";
-          echo "文件错误！";
-          echo "</p>";
-        }
-        }
-    }
-    else
-    {
-      echo "文件格式不正确，请确认文件后缀名为zip、7z或rar";
-    }
-  ?>
+        <p>你输入的学号已经上传过一次文件了，不能重复上传，如需再次上传，请填写“申请重新上传”页面并等待人工处理。</p>
       </div>
         </div>
-      </div>
+      </div> <!-- /container -->
       <?php include('footer.php') ?>
       <aside id="aside" class="sidebar col-sm-3 col-md-2 hidden-print small">
         <div class="sidebar-content">

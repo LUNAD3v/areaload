@@ -16,7 +16,8 @@ $accept = 1;
 foreach ($uploaders as $test_key) {
   if($stunumber == $test_key["number"])
   {
-    $accept = 0;
+    header("Location: ./duplicate.html");
+    exit();
   }
 }
 //End Duplication Prevention
