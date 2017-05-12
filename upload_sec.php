@@ -1,6 +1,7 @@
 <?php
 //Variables
 $stunumber = $_POST["number"];
+$stunumber = substr($stunumber,0,12);
 $stuip = $_SERVER['REMOTE_ADDR'];
 $stuname = $_POST['name'];
 $filename = $_FILES['userfile']['name'];

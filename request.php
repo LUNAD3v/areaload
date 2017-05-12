@@ -5,6 +5,7 @@ $num2=$_POST["num2"];
 $true=$num1+$num2;
 
 $stunumber = $_POST["number"];
+$stunumber = substr($stunumber,0,12);
 $problem = $_POST["problem"];
 
 //SQL injection prevention
