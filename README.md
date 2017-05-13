@@ -1,5 +1,6 @@
 # AreaLoad
 
+![AreaLoad](./img/areaload.png)
 一个用PHP编写的作业上传平台
 [演示地址](https://lunaluna.org/areaload)
 [English README](./README_en.md)
@@ -71,10 +72,11 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/c /var/www/areaload/web 
 
 # TODO
 
-- [ ] 使用图形验证码防止自动提交脚本 
+- [ ] 使用图形验证码防止自动提交脚本
 - [ ] 服务端的文件扫描和正确性测试
 - [ ] 编写一个Web GUI方便教师用HTTP的方式修改trustlist和清除学生提出的问题
 - [ ] 程序的模块化重构，使用统一文件来handle用于的上传操作
+- [ ] 使用PHP框架重构
 
 # Author
 
