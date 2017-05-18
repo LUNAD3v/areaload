@@ -118,7 +118,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
           echo $_FILES['userfile']['name'];
           echo "已经成功上传";
           echo "</p>";
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename') VALUES ('$stunumber','$stuip','$stuname','$filename');");
+          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$filename','$course');");
 				} else {
 					echo "<p>";
 					echo "文件错误！";
