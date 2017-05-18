@@ -3,7 +3,6 @@
 ![AreaLoad](./img/areaload.png)
 一个用PHP编写的作业上传平台。
 [演示地址](https://lunaluna.org/areaload)
-[English README](./README_en.md)
 
 # 设计特性
 
