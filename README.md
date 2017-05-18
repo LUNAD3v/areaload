@@ -75,7 +75,7 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/c /var/www/areaload/web 
 - [ ] 使用图形验证码防止自动提交脚本
 - [ ] 服务端的文件扫描和正确性测试
 - [ ] 编写一个Web GUI方便教师用HTTP的方式修改trustlist和清除学生提出的问题
-- [ ] 程序的模块化重构，使用统一文件来handle用于的上传操作
+- [x] 程序的模块化重构，使用统一文件来handle用于的上传操作
 - [ ] 使用PHP框架重构
 
 # Author
