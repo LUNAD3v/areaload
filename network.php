@@ -62,7 +62,7 @@
 
   <div class="jumbotron" style="opacity: 0.8">
     <h1>上传文件</h1>
-    <form action="upload_network.php" method="post" enctype="multipart/form-data">
+    <form action="handler.php" method="post" enctype="multipart/form-data">
 
       <div class="row">
         <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -73,6 +73,7 @@
           <label class="btn btn-primary" for="fileSelect" >
                 选择文件&hellip;
             </label><input type="file" id="fileSelect" name="userfile" style="visibility:hidden;" onchange="cli()">
+            <input type="hidden" name="course" value="network"></input>
             <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
             <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
             <button class="btn btn-lg btn-danger btn-block" input type="submit">上传</button>
