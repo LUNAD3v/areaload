@@ -15,9 +15,9 @@
 
   $courseid = $_POST['course'];//Get courseid from index.php
   $connect = new PDO('sqlite:./db/db.sqlite');
-  $coursename = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");
-  $courseinfo = $connect->query("SELECT info FROM course WHERE id LIKE '$courseid';");
-  $coursedemand = $connect->query("SELECT demand FROM course WHERE id LIKE '$courseid';");
+  $coursenamearray = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");
+  $courseinfoarray = $connect->query("SELECT info FROM course WHERE id LIKE '$courseid';");
+  $coursedemandarray = $connect->query("SELECT demand FROM course WHERE id LIKE '$courseid';");
  ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -53,14 +53,14 @@
 
 		<h2>
       <b><?php
-    foreach ($coursename as $realcoursename) {
+    foreach ($coursenamearray as $realcoursename) {
       echo $realcoursename[0];
     }
     ?></b>
     上传要求</h2>
 
     <pre><?php
-    foreach ($coursedemand as $realcoursedemand) {
+    foreach ($coursedemandarray as $realcoursedemand) {
       echo $realcoursedemand[0];
     }
     ?></pre>
@@ -87,7 +87,7 @@
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
           <p><?php
-          foreach ($courseinfo as $realcourseinfo) {
+          foreach ($courseinfoarray as $realcourseinfo) {
           echo $realcourseinfo[0];
           }
           ?></p>
