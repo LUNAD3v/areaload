@@ -2,6 +2,22 @@
   $number1 = rand(0,30);
   $number2 = rand(0,10);
   $result = $number1 + $number2;
+
+//If no post data from index, redirect to index.php
+  if(!$_POST['course'])
+  {
+    echo "<script>";
+    echo "alert(\"你没有选择课程！\");";
+    echo "</script>";
+    header("Location: ./index.php");
+    exit();
+  }
+
+  $courseid = $_POST['course'];//Get courseid from index.php
+  $connect = new PDO('sqlite:./db/db.sqlite');
+  $coursename = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");
+  $courseinfo = $connect->query("SELECT info FROM course WHERE id LIKE '$courseid';");
+  $coursedemand = $connect->query("SELECT demand FROM course WHERE id LIKE '$courseid';");
  ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -21,7 +37,7 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="./css/mdb-p.min.css" rel="stylesheet">
+    <link href="./css/mdb.min.css" rel="stylesheet">
 
 
 </head>
@@ -32,18 +48,24 @@
 
   <div class="container">
 
+
 	<div class="jumbotron" style="opacity: 0.8">
-		<h2>计算机网络</h2>
+
+		<h2>
+      <b><?php
+    foreach ($coursename as $realcoursename) {
+      echo $realcoursename[0];
+    }
+    ?></b>
+    上传要求</h2>
         <ul>
-        <li>1.自选主题（如读书、人权、时政、学校、科技、人物等），做一个不少于5个页面的网站</li>
-        <li>2.撰写结业报告，封面包含如下内容：题目（《Web技术基础》课程结业报告）、班级学号、专业、姓名、指导教师，正文必须包含建站思路、遇到的问题、如何解决、遗留问题、总结这些部分，其它任意</li>
-        <li>3.网站建设可借鉴，结业报告严禁抄袭（抄与被抄者皆为0分）</li>
-        <li>4.网站提交整个文件夹，并压缩为Zip包或7z压缩后提交（其他格式不予接受）</li>
-        <li>5.纸质结业报告提交给各班班长，统一收取后交给任课教师</li>
-        <li>6.提交截止时间为14周周四下午3点</li>
-        <li><b>7.请以自己的学号作为文件名。（例631607040101.zip）</b></li>
+          <li><?php
+        foreach ($courseinfo as $realcourseinfo) {
+          echo $realcourseinfo[0];
+        }
+        ?></li>
         </ul>
-	</div>
+    </div>
 
   <div class="jumbotron" style="opacity: 0.8">
     <h1>上传文件</h1>
@@ -54,19 +76,22 @@
           <input type="text" name="number" class="form-control" placeholder="学号" required autofocus>
           <input type="text" name="name" class="form-control" placeholder="姓名" required>
           <b>请算出答案：</b><input type="text" name="captcha" placeholder="<?php echo $number1?>+ <?php echo $number2?> = ?" required>
-          文件名<input type="text" id="na" placeholder="当前未选择文件...">
+          文件名<input type="text" id="na"  placeholder="当前未选择文件...">
           <label class="btn btn-primary" for="fileSelect" >
                 选择文件&hellip;
             </label><input type="file" id="fileSelect" name="userfile" style="visibility:hidden;" onchange="cli()">
-            <input type="hidden" name="course" value="network"></input>
+            <input type="hidden" name="course" value="<?php echo $courseid?>"></input>
             <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
             <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
             <button class="btn btn-lg btn-danger btn-block" input type="submit">上传</button>
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
-          <p>本课程是各专业的核心专业基础课。掌握计算机网络的基本原理，熟悉网络的运行方式，
-            能对相应的网络故障进行诊断与解决，能进行基本的网络管理、规划和维护等，了解当前网络技术的发展。 </p>
+          <p><?php
+          foreach ($coursedemand as $realcoursedemand) {
+            echo $realcoursedemand[0];
+          }
+          ?></p>
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
       </div><!--<div class="row">-->
@@ -81,7 +106,7 @@
     <div class="sidebar-content">
         <div class="sidebar-body collapse in">
             <p>
-                <img src="./img/network.jpg" style="position: fixed; bottom: -180px; left: -230px; opacity: 0.6; z-index: -100" alt="">
+                <img src="./img/web.jpeg" style="position: fixed; bottom: -180px; left: -230px; opacity: 0.6; z-index: -100" alt="">
             </p>
         </div>
     </div>

@@ -7,12 +7,16 @@ $stuname = $_POST['name'];
 $filename = $_FILES['userfile']['name'];
 $course = $_POST['course'];
 
-//Connect to uploaded students database
+//Begin Database connection
 $upconnect = new PDO('sqlite:./db/db.sqlite');
 $uploaders = $upconnect->query("SELECT * FROM uploaded");
+//End Database connection
 //Default safety
 $accept = 1;
 
+//Begin SELECT courseid for storage
+$courseid = $upconnect->query("SELECT 'id' FROM 'course' WHERE name LIKE '$course';");
+//End SELECT courseid for storage
 
 //Prevent Duplication
 foreach ($uploaders as $test_key) {
@@ -44,7 +48,7 @@ if($accept != 1)
 
 //If success,keep uploading
 $uploaddir = './';
-$uploadfile = $uploaddir . $course . '/' . basename($_FILES['userfile']['name']);
+$uploadfile = $uploaddir . $courseid . '/' . basename($_FILES['userfile']['name']);
 $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
 
 ?>
@@ -103,7 +107,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
           echo $_FILES['userfile']['name'];
           echo "已经成功上传";
           echo "</p>";
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$filename','$course');");
+          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$filename','$courseid');");
 				} else {
 					echo "<p>";
 					echo "文件错误！";
