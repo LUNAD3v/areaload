@@ -21,7 +21,7 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="./css/mdb-p.min.css" rel="stylesheet">
+    <link href="./css/mdb.min.css" rel="stylesheet">
 
 
 </head>
@@ -42,42 +42,62 @@
     <div class="row">
     <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
-        <a href="./web.php"><img src="./img/icon-web.png" alt="..."></a>
+        <img src="./img/icon-web.png">
         <div class="caption">
           <h3>Web技术基础</h3>
         </div>
+        <form action="select.php" method="post">
+          <input type="hidden" name="course" value="web"></input>
+          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
+        </form>
       </div>
     </div>
     <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
-        <a href="./c.php"><img src="./img/icon-c.png" alt="..."></a>
+        <img src="./img/icon-c.png">
         <div class="caption">
           <h3>C语言程序设计</h3>
         </div>
+        <form action="select.php" method="post">
+          <input type="hidden" name="course" value="c"></input>
+          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
+        </form>
       </div>
     </div>
     <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
-        <a href="./sec.php"><img src="./img/icon-sec.png" alt="..."></a>
+        <img src="./img/icon-sec.png">
         <div class="caption">
           <h3>网络安全</h3>
         </div>
+        <form action="select.php" method="post">
+          <input type="hidden" name="course" value="sec"></input>
+          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
+        </form>
       </div>
     </div>
     <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
-        <a href="./c.php"><img src="./img/icon-cbase.png" alt="..."></a>
+        <img src="./img/icon-cbase.png">
         <div class="caption">
           <h3>大学计算机基础</h3>
         </div>
+        <form action="select.php" method="post">
+          <input type="hidden" name="course" value="cbase"></input>
+          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
+        </form>
       </div>
     </div>
     <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
-        <a href="./network.php"><img src="./img/icon-network.png" alt="..."></a>
+        <img src="./img/icon-network.png">
         <div class="caption">
           <h3>计算机网络</h3>
         </div>
+        <form action="select.php" method="post">
+          <input type="hidden" name="course" value="network"></input>
+          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
+        </form>
       </div>
     </div>
   </div>

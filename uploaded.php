@@ -37,15 +37,14 @@ $uploaders = $upconnect->query("SELECT * FROM uploaded");
         <div class='jumbotron' style="opacity: 0.8">
     <?php
 
-		echo "<table align='center'><tr align='center'>";
-		echo "<tr><th>学号</th><th>姓名</th><th>文件名</th><th>上传课程</th></tr>";
+		        echo "<table align='center'><tr align='center'>";
+		        echo "<tr><th>学号</th><th>姓名</th><th>文件名</th><th>上传课程</th></tr>";
 
         foreach($uploaders as $row)
         {
-		$course = $upconnect->query("SELECT name FROM course WHERE id LIKE $row['course'];");//To display the full name of a course
-		echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td><td>".$course."</tr>";
+		        echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td><td>".$course."</tr>";
         }
-		echo "</table>";
+		        echo "</table>";
     ?>
 
       </div> <!-- /container -->
