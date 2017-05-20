@@ -42,7 +42,8 @@ $uploaders = $upconnect->query("SELECT * FROM uploaded");
 
         foreach($uploaders as $row)
         {
-			echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td><td>".$row['course']."</tr>";
+		$course = $upconnect->query("SELECT name FROM course WHERE id LIKE $row['course'];");//To display the full name of a course
+		echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td><td>".$course."</tr>";
         }
 		echo "</table>";
     ?>
