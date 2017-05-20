@@ -58,13 +58,12 @@
     }
     ?></b>
     上传要求</h2>
-        <ul>
-          <li><?php
-        foreach ($courseinfo as $realcourseinfo) {
-          echo $realcourseinfo[0];
-        }
-        ?></li>
-        </ul>
+
+    <pre><?php
+    foreach ($coursedemand as $realcoursedemand) {
+      echo $realcoursedemand[0];
+    }
+    ?></pre>
     </div>
 
   <div class="jumbotron" style="opacity: 0.8">
@@ -88,8 +87,8 @@
 
         <div class="col-lg-6 col-sm-6 col-xs-12">
           <p><?php
-          foreach ($coursedemand as $realcoursedemand) {
-            echo $realcoursedemand[0];
+          foreach ($courseinfo as $realcourseinfo) {
+          echo $realcourseinfo[0];
           }
           ?></p>
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
