@@ -42,7 +42,7 @@ $uploaders = $upconnect->query("SELECT * FROM uploaded");
 
         foreach($uploaders as $row)
         {
-		        echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td><td>".$course."</tr>";
+		        echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td><td>".$row['course']."</tr>";
         }
 		        echo "</table>";
     ?>
