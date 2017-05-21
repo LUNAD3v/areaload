@@ -5,7 +5,7 @@ $stunumber = substr($stunumber,0,12);//Overflow prevention
 $stuip = $_SERVER['REMOTE_ADDR'];
 $stuname = $_POST['name'];
 $filename = $_FILES['userfile']['name'];
-$course = $_POST['course'];
+$courseid = $_POST['courseid'];
 
 //Begin Database connection
 $upconnect = new PDO('sqlite:./db/db.sqlite');
@@ -49,7 +49,7 @@ if($accept != 1)
 
 //If success,keep uploading
 $uploaddir = './';
-$uploadfile = $uploaddir . $course . '/' . basename($_FILES['userfile']['name']);
+$uploadfile = $uploaddir . $courseid . '/' . basename($_FILES['userfile']['name']);
 $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
 
 ?>
@@ -108,7 +108,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
           echo $_FILES['userfile']['name'];
           echo "已经成功上传";
           echo "</p>";
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$filename','$course');");
+          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$filename','$courseid');");
 				} else {
 					echo "<p>";
 					echo "文件错误！";

@@ -4,16 +4,13 @@
   $result = $number1 + $number2;
 
 //If no post data from index, redirect to index.php
-  if(!$_POST['course'])
+  if(!$_POST['courseid'])
   {
-    echo "<script>";
-    echo "alert(\"你没有选择课程！\");";
-    echo "</script>";
     header("Location: ./index.php");
     exit();
   }
 
-  $courseid = $_POST['course'];//Get courseid from index.php
+  $courseid = $_POST['courseid'];//Get courseid from index.php
   $connect = new PDO('sqlite:./db/db.sqlite');
   $coursenamearray = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");
   $courseinfoarray = $connect->query("SELECT info FROM course WHERE id LIKE '$courseid';");
@@ -28,7 +25,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>AreaLoad文件上传系统</title>
+    <title><?php
+  foreach ($coursenamearray as $realcoursename) {
+    echo $realcoursename[0];
+  }
+  ?>作业上传</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -58,7 +59,6 @@
     }
     ?></b>
     上传要求</h2>
-
     <pre><?php
     foreach ($coursedemandarray as $realcoursedemand) {
       echo $realcoursedemand[0];

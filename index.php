@@ -2,6 +2,9 @@
   $number1 = rand(0,30);
   $number2 = rand(0,10);
   $result = $number1 + $number2;
+  $connect = new PDO('sqlite:./db/db.sqlite');
+  $array = $connect->query("SELECT * FROM course;");
+
  ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -40,67 +43,30 @@
 
   <div class="jumbotron" style="opacity: 0.8">
     <div class="row">
-    <div class="col-sm-6 col-md-2">
-      <div class="thumbnail">
-        <img src="./img/icon-web.png">
-        <div class="caption">
-          <h3>Web技术基础</h3>
-        </div>
-        <form action="select.php" method="post">
-          <input type="hidden" name="course" value="web"></input>
-          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
-        </form>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-2">
-      <div class="thumbnail">
-        <img src="./img/icon-c.png">
-        <div class="caption">
-          <h3>C语言程序设计</h3>
-        </div>
-        <form action="select.php" method="post">
-          <input type="hidden" name="course" value="c"></input>
-          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
-        </form>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-2">
-      <div class="thumbnail">
-        <img src="./img/icon-sec.png">
-        <div class="caption">
-          <h3>网络安全</h3>
-        </div>
-        <form action="select.php" method="post">
-          <input type="hidden" name="course" value="sec"></input>
-          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
-        </form>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-2">
-      <div class="thumbnail">
-        <img src="./img/icon-cbase.png">
-        <div class="caption">
-          <h3>大学计算机基础</h3>
-        </div>
-        <form action="select.php" method="post">
-          <input type="hidden" name="course" value="cbase"></input>
-          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
-        </form>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-2">
-      <div class="thumbnail">
-        <img src="./img/icon-network.png">
-        <div class="caption">
-          <h3>计算机网络</h3>
-        </div>
-        <form action="select.php" method="post">
-          <input type="hidden" name="course" value="network"></input>
-          <button class="btn btn-lg btn-danger btn-block" input type="submit">提交作业</button>
-        </form>
-      </div>
-    </div>
-  </div>
+
+	<?php foreach($array as $row)
+  {
+		echo "<div class=\"col-sm-6 col-md-2\">";
+		echo "<div class=\"thumbnail\">";
+		echo "<img src=\"./img/icons/" . $row['id'] . ".png" . "\">";
+		echo "<div class=<\"caption\">";
+		echo "<h3>" . $row['name'];
+		echo "</div>";
+
+		echo "<form action=\"select.php\" method=\"post\">";
+    echo "<input type=\"hidden\" name=\"courseid\" value=\"" . $row['id'] ."\"" . "></input>";
+    echo "<button class=\"btn btn-lg btn-danger btn-block\" input type=\"submit\">提交作业</button>";
+    echo "</form>";
+
+		echo "</div>";
+    echo "</div>";
+
+  }
+?>
+
+
+	</div><!-- col-sm-6 col-md-2-->
+
 </div>
 
   </div> <!-- /container -->
