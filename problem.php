@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <img src="./img/problem.jpg" style="position: fixed;width: 100%; opacity: 0.6; z-index: -100" alt="">
+  <img src="./img/problem.jpg" style="position: fixed;width: 100%; opacity: 0.4; z-index: -100" alt="">
 
 <?php include('nav.php') ?>
 
