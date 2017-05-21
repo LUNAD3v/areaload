@@ -30,6 +30,7 @@
 </head>
 
 <body>
+<img src="./img/bg.jpg" style="position: fixed;width: 100%; opacity: 0.6; z-index: -100" alt="">
 
 <?php include('nav.php') ?>
 
@@ -71,15 +72,6 @@
 
   </div> <!-- /container -->
   <?php include('footer.php') ?>
-  <aside id="aside" class="sidebar col-sm-3 col-md-2 hidden-print small">
-    <div class="sidebar-content">
-        <div class="sidebar-body collapse in">
-            <p>
-                <img src="./img/bg.jpg" style="position: fixed; bottom: -180px; left: -230px; opacity: 0.6; z-index: -100" alt="">
-            </p>
-        </div>
-    </div>
-</aside>
     <!-- SCRIPTS -->
 <script>
 function cli(){

@@ -26,7 +26,7 @@ $search = $upconnect->query("SELECT * FROM problem");
 </head>
 
 <body>
-
+<img src="./img/problem.jpg" style="position: fixed;width: 100%; opacity: 0.6; z-index: -100" alt="">
 <?php include('nav.php') ?>
 
       <div class="container">
@@ -50,16 +50,6 @@ $search = $upconnect->query("SELECT * FROM problem");
 
       </div>
       <?php include('footer.php') ?>
-      <aside id="aside" class="sidebar col-sm-3 col-md-2 hidden-print small">
-        <div class="sidebar-content">
-            <div class="sidebar-body collapse in">
-
-                <p>
-                    <img src="./img/problem.jpg" style="position: fixed; bottom: -180px; left: -230px; opacity: 0.3; z-index: -100" alt="">
-                </p>
-            </div>
-        </div>
-    </aside>
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
