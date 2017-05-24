@@ -36,7 +36,8 @@ $tickets = $connect->query("SELECT * FROM problem");
               <ul class="list-group">
               <?php
               foreach ($array as $course) {
-                $counts = $connect->query("SELECT COUNT(*) FROM uploaded;");
+                $eachcourseid = $course['id'];
+                $counts = $connect->query("SELECT COUNT(*) FROM uploaded WHERE course = '$eachcourseid';");
                 $count = $counts->fetchColumn();
                 echo "<li class=\"list-group-item\">";
                 echo "<span class=\"badge\">". $count . "</span>";
