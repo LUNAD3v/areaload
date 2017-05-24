@@ -61,9 +61,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 			  <hr>
 			  <h2>删除课程</h2>
 			  <form action="course.php" method="post">
-              <input type="text" name="delcourseid" class="form-control" placeholder="课程ID（例：web）" required>
-              <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
-              </form>
+        <input type="text" name="delcourseid" class="form-control" placeholder="课程ID（例：web）" required>
+        <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
+        </form>
 
               </div>
             </div>
