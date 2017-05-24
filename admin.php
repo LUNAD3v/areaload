@@ -51,8 +51,8 @@ $tickets = $connect->query("SELECT * FROM problem");
               <form action="handler.php" method="post">
               <input type="text" name="coursename" class="form-control" placeholder="课程名称（例：Web技术基础）" required>
               <input type="text" name="courseid" class="form-control" placeholder="课程ID（例：web）" required>
-              <input type="text" name="courseinfo" class="form-control" placeholder="课程介绍" required>
-              <input type="text" name="coursedemand" class="form-control" placeholder="课程要求" required>
+              <textarea input type="text" class="form-control" rows="2" name="courseinfo" placeholder="课程介绍" required></textarea>
+              <textarea input type="text" class="form-control" rows="5" name="coursedemand" placeholder="课程要求" required></textarea>
               <button class="btn btn-lg btn-danger btn-block" input type="submit">添加</button>
               </form>
               </div>
