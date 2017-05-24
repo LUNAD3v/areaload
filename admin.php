@@ -2,6 +2,7 @@
 $connect = new PDO('sqlite:./db/db.sqlite');
 $array = $connect->query("SELECT * FROM course;");
 $tickets = $connect->query("SELECT * FROM problem");
+$trustlists = $connect->query("SELECT * FROM trustlist");
 ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -41,21 +42,29 @@ $tickets = $connect->query("SELECT * FROM problem");
                 $count = $counts->fetchColumn();
                 echo "<li class=\"list-group-item\">";
                 echo "<span class=\"badge\">". $count . "</span>";
-                echo $course['name'];
+                echo "<b>" . $course['name'] . "</b>" . " | " . $course['id'];
                 echo "</li>";
               }
                 ?>
             </ul>
             <div class="panel panel-success">
-              <div class="panel-heading">添加课程</div>
+              <div class="panel-heading">课程管理</div>
               <div class="panel-body">
+			  <h2>添加课程</h2>
               <form action="course.php" method="post">
               <input type="text" name="addcoursename" class="form-control" placeholder="课程名称（例：Web技术基础）" required>
               <input type="text" name="addcourseid" class="form-control" placeholder="课程ID（例：web）" required>
               <textarea input type="text" class="form-control" rows="2" name="addcourseinfo" placeholder="课程介绍" required></textarea>
               <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
-              <button class="btn btn-lg btn-danger btn-block" input type="submit">添加</button>
+              <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
               </form>
+			  <hr>
+			  <h2>删除课程</h2>
+			  <form action="course.php" method="post">
+              <input type="text" name="delcourseid" class="form-control" placeholder="课程ID（例：web）" required>
+              <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
+              </form>
+
               </div>
             </div>
 
@@ -68,13 +77,44 @@ $tickets = $connect->query("SELECT * FROM problem");
               <?php
               foreach ($tickets as $ticket) {
                 echo "<li class=\"list-group-item\">";
-                echo "<b>".$ticket['number']."</b>" . "| ";
+                echo "<b>".$ticket['number']."</b>" . " | ";
                 echo $ticket['content'];
                 echo "</li>";
               }
                 ?>
             </ul>
+			<div class="page-header">
+                <h1>信任列表</h1>
+              </div><!--/ header -->
+              <ul class="list-group">
+              <?php
+              foreach ($trustlists as $trustlist) {
+                echo "<li class=\"list-group-item\">";
+                echo $trustlist['number'];
+                echo "</li>";
+              }
+                ?>
+            </ul>
+		<div class="panel panel-success">
+              <div class="panel-heading">信任学号（段）管理</div>
+              <div class="panel-body">
+			  <h2>添加信任学号（段）</h2>
+			  <p>通配部分使用00代替，如允许所有16级信息学院计算机类的学生上传，则填写：“631607040000”</p>
+              <form action="course.php" method="post">
+              <input type="text" name="addtrustlist" class="form-control" placeholder="学号或学号段（例：631607040400）" required>
+              <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
+              </form>
+			  <hr>
+			  <h2>删除信任学号（段）</h2>
+			  <form action="course.php" method="post">
+              <input type="text" name="deltrustlist" class="form-control" placeholder="学号或学号段" required>
+              <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
+              </form>
+
+              </div>
+
           </div><!--<div class="col-md-6 col-sm-12">-->
+
         </div><!--/row-->
 
       </div> <!-- /container -->
