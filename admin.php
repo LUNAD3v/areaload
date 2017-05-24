@@ -13,7 +13,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>管理界面</title>
+    <title>管理面板</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -84,7 +84,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 ?>
             </ul>
 			  <form action="course.php" method="post">
-              <input type="text" name="delticket" class="form-control" placeholder="课程ID（例：web）" required>
+              <input type="text" name="delticket" class="form-control" placeholder="学号" required>
               <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
               </form>
 			<div class="page-header">
