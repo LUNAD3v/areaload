@@ -10,14 +10,34 @@ $courseid = $_POST['courseid'];
 //Begin Database connection
 $upconnect = new PDO('sqlite:./db/db.sqlite');
 $uploaders = $upconnect->query("SELECT * FROM uploaded");
+$trustlists = $upconnect->query("SELECT * FROM trustlist");
 //End Database connection
-//Default safety
 $accept = 1;
 
-//Begin SELECT courseid for storage
-//$courseid = $upconnect->query("SELECT 'id' FROM 'course' WHERE name LIKE '$course';");
-//$realcourseid = $courseid->;
-//End SELECT courseid for storage
+function validate($test_key,$stunumber)
+{
+  $stulen = strlen($stunumber);
+  $test_keylen = strlen($test_key);
+  if($stulen != $test_keylen)
+  {
+    return 0;//Meet error
+  }
+  for($i=0;$i<$stulen;$i++)
+  {
+    if($test_key[$i]!= '*' && ($test_key[$i]-$stunumber[$i]) )
+      return 0;
+  }
+  return 1;
+}
+
+//Begin Student number isolation and validation
+foreach ($trustlists as $test_key) {
+  if(validate($test_key['number'],$stunumber) != 1)
+  {
+      $accept = 0;
+  }
+}
+//End Student number isolation and validation
 
 //Prevent Duplication
 foreach ($uploaders as $test_key) {
@@ -43,7 +63,7 @@ if($usercaptcha != $true)
 //If anything failed, return to upload page
 if($accept != 1)
 {
-  header("Location: ./$course.php");
+  header("Location: ./index.php");
   exit();
 }
 

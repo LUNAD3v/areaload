@@ -83,6 +83,10 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               }
                 ?>
             </ul>
+			  <form action="course.php" method="post">
+              <input type="text" name="delticket" class="form-control" placeholder="课程ID（例：web）" required>
+              <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
+              </form>
 			<div class="page-header">
                 <h1>信任列表</h1>
               </div><!--/ header -->
@@ -99,9 +103,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               <div class="panel-heading">信任学号（段）管理</div>
               <div class="panel-body">
 			  <h2>添加信任学号（段）</h2>
-			  <p>通配部分使用00代替，如允许所有16级信息学院计算机类的学生上传，则填写：“631607040000”</p>
+			  <p>通配部分使用**代替，如允许所有16级信息学院计算机类的学生上传，则填写：“63160704****”</p>
               <form action="course.php" method="post">
-              <input type="text" name="addtrustlist" class="form-control" placeholder="学号或学号段（例：631607040400）" required>
+              <input type="text" name="addtrustlist" class="form-control" placeholder="学号或学号段（例：6316070404**）" required>
               <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
               </form>
 			  <hr>

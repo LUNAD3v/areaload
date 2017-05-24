@@ -26,11 +26,20 @@ if($addcoursename && $addcourseid && $addcourseinfo && $addcoursedemand)
 $connect->exec("INSERT INTO 'course' ('name','id','info','demand') VALUES ('$addcoursename','$addcourseid','$addcourseinfo','$addcoursedemand');");
 }
 //End ADD course
+
 //Begin DEL course
 $delcourseid = $_POST['delcourseid'];
 if($delcourseid)
 {
 $connect->exec("DELETE FROM 'course' WHERE id='$delcourseid';");
+}
+//End DEL course
+
+//Begin DEL ticket
+$delticket = $_POST['delticket'];
+if($delticket)
+{
+$connect->exec("DELETE FROM 'problem' WHERE id='$delticket';");
 }
 
 header("Location: ./admin.php");
