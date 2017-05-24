@@ -80,7 +80,7 @@
           <label class="btn btn-primary" for="fileSelect" >
                 选择文件&hellip;
             </label><input type="file" id="fileSelect" name="userfile" style="visibility:hidden;" onchange="cli()">
-            <input type="hidden" name="course" value="<?php echo $courseid?>"></input>
+            <input type="hidden" name="courseid" value="<?php echo $courseid?>"></input>
             <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
             <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
             <button class="btn btn-lg btn-danger btn-block" input type="submit">上传</button>
