@@ -39,7 +39,7 @@ $connect->exec("DELETE FROM 'course' WHERE id='$delcourseid';");
 $delticket = $_POST['delticket'];
 if($delticket)
 {
-$connect->exec("DELETE FROM 'problem' WHERE id='$delticket';");
+$connect->exec("DELETE FROM 'problem' WHERE number='$delticket';");
 }
 
 header("Location: ./admin.php");

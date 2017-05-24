@@ -12,7 +12,7 @@ $upconnect = new PDO('sqlite:./db/db.sqlite');
 $uploaders = $upconnect->query("SELECT * FROM uploaded");
 $trustlists = $upconnect->query("SELECT * FROM trustlist");
 //End Database connection
-$accept = 1;
+$accept = 0;
 
 function validate($test_key,$stunumber)
 {
@@ -32,9 +32,9 @@ function validate($test_key,$stunumber)
 
 //Begin Student number isolation and validation
 foreach ($trustlists as $test_key) {
-  if(validate($test_key['number'],$stunumber) != 1)
+  if(validate($test_key['number'],$stunumber))
   {
-      $accept = 0;
+      $accept = 1;
   }
 }
 //End Student number isolation and validation
