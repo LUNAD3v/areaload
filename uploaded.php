@@ -3,7 +3,7 @@ $upconnect = new PDO('sqlite:./db/db.sqlite');
 $uploaders = $upconnect->query("SELECT * FROM uploaded");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
 
