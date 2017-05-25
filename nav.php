@@ -8,7 +8,6 @@
             <ul class="nav navbar-nav">
               <li <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'class="active"'?>><a href="./index.php">首页</a></li>
               <li <?php if (basename($_SERVER['PHP_SELF']) == 'problem.php') echo 'class="active"'?>><a href="./problem.php">申请重新上传</a></li>
-              <li <?php if (basename($_SERVER['PHP_SELF']) == 'uploaded.php') echo 'class="active"'?>><a href="./uploaded.php">已经上传的学生列表</a></li>
               <li <?php if (basename($_SERVER['PHP_SELF']) == 'admin.php') echo 'class="active"'?>><a href="./admin.php">管理面板</a></li>
             </ul>
         </div>
