@@ -12,6 +12,7 @@
 
   $courseid = $_POST['courseid'];//Get courseid from index.php
   $connect = new PDO('sqlite:./db/db.sqlite');
+  $uploaders = $connect->query("SELECT * FROM uploaded WHERE course='$courseid'");
   $coursenamearray = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");
   $courseinfoarray = $connect->query("SELECT info FROM course WHERE id LIKE '$courseid';");
   $coursedemandarray = $connect->query("SELECT demand FROM course WHERE id LIKE '$courseid';");
@@ -40,7 +41,11 @@
     <!-- Material Design Bootstrap -->
     <link href="./css/mdb.min.css" rel="stylesheet">
 
-
+    <style>
+    	table{
+    		width:100%;
+    	}
+    </style>
 </head>
 
 <body>
@@ -98,6 +103,20 @@
 
 </form>
 
+</div>
+
+<div class='jumbotron' style="opacity: 0.8">
+<?php
+        echo "<h2>已上传学生</h2>";
+        echo "<table align='center'><tr align='center'>";
+        echo "<tr><th>学号</th><th>姓名</th><th>文件名</th></tr>";
+
+foreach($uploaders as $row)
+{
+        echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['filename']."</td></tr>";
+}
+        echo "</table>";
+?>
 </div>
 
   </div> <!-- /container -->
