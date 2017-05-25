@@ -69,6 +69,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
             </div>
 
           </div><!--<div class="col-md-6 col-sm-12">-->
+
           <div class="col-md-6 col-sm-12">
             <div class="page-header">
                 <h1>Tickets</h1>
@@ -99,7 +100,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               }
                 ?>
             </ul>
-		<div class="panel panel-success">
+		        <div class="panel panel-success">
               <div class="panel-heading">信任学号（段）管理</div>
               <div class="panel-body">
 			  <h2>添加信任学号（段）</h2>
@@ -117,7 +118,8 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
               </div>
 
-          </div><!--<div class="col-md-6 col-sm-12">-->
+          </div><!--<div class="panel panel-success">-->
+        </div><!--<div class="col-md-6 col-sm-12">-->
 
         </div><!--/row-->
 
