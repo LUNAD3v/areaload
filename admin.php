@@ -43,6 +43,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 <h1>课程列表</h1>
               </div><!--/ header -->
               <ul class="list-group">
+
               <?php
               foreach ($array as $course) {
                 $eachcourseid = $course['id'];
@@ -50,10 +51,20 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 $count = $counts->fetchColumn();
                 echo "<li class=\"list-group-item\">";
                 echo "<span class=\"badge\">". $count . "</span>";
-                echo "<b>" . $course['name'] . "</b>" . " | " . $course['id'];
+								echo "<form action=\"course.php\" method=\"post\">";
+								echo "<input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
+		    				echo "<button class=\"badge\" input type=\"submit\">重置</button>";
+								echo "</form>";
+								echo "<form action=\"course.php\" method=\"post\">";
+								echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
+								echo "<button class=\"badge\" input type=\"submit\">删除</button>";
+								echo "</form>";
+								echo "<b>" . $course['name'] . "</b>" . " | " . $course['id'];
                 echo "</li>";
               }
+
                 ?>
+			</form>
             </ul>
             <div class="panel panel-success">
               <div class="panel-heading">课程管理</div>
@@ -111,15 +122,15 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 		        <div class="panel panel-success">
               <div class="panel-heading">信任学号（段）管理</div>
               <div class="panel-body">
-			  <h2>添加信任学号（段）</h2>
-			  <p>通配部分使用**代替，如允许所有16级信息学院计算机类的学生上传，则填写：“63160704****”</p>
+			  			<h2>添加信任学号（段）</h2>
+			  			<p>通配部分使用**代替，如允许所有16级信息学院计算机类的学生上传，则填写：“63160704****”</p>
               <form action="course.php" method="post">
               <input type="text" name="addtrustlist" class="form-control" placeholder="学号或学号段（例：6316070404**）" required>
               <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
               </form>
-			  <hr>
-			  <h2>删除信任学号（段）</h2>
-			  <form action="course.php" method="post">
+			  		<hr>
+			  			<h2>删除信任学号（段）</h2>
+			  			<form action="course.php" method="post">
               <input type="text" name="deltrustlist" class="form-control" placeholder="学号或学号段" required>
               <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
               </form>
