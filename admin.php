@@ -1,4 +1,12 @@
 <?php
+session_start();
+//Check for SESSION
+if(!$_SESSION['valid'])
+{
+	header("Location:./login.php");
+	exit();
+}
+
 $connect = new PDO('sqlite:./db/db.sqlite');
 $array = $connect->query("SELECT * FROM course;");
 $tickets = $connect->query("SELECT * FROM problem");
@@ -13,7 +21,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>管理面板</title>
+    <title>AreaLoad | 管理面板</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
