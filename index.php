@@ -43,24 +43,27 @@
         </div>
 
   <div class="jumbotron" style="opacity: 0.8">
-    <div class="row">
+
 
 	<?php foreach($array as $row)
   {
-		echo "<div class=\"col-sm-6 col-md-2\">";
-		echo "<div class=\"thumbnail\">";
-		echo "<img src=\"./img/icons/" . $row['id'] . ".png" . "\">";
-		echo "<div class=<\"caption\">";
-		echo "<h3>" . $row['name'];
-		echo "</div>";
+    echo "<div class=\"alert alert-info\" role=\"alert\">";
+    echo "<div class=\"row\">";
+    echo "<div class=\"col-sm-6 col-md-10\">";
 
-		echo "<form action=\"select.php\" method=\"post\">";
+    echo "<h3>" . $row['name'] . "<h3>";
+
+    echo "</div><!-- col -->";
+    echo "<div class=\"col-sm-6 col-md-2\">";
+
+    echo "<form action=\"select.php\" method=\"post\">";
     echo "<input type=\"hidden\" name=\"courseid\" value=\"" . $row['id'] ."\"" . "></input>";
     echo "<button class=\"btn btn-lg btn-danger btn-block\" input type=\"submit\">提交作业</button>";
     echo "</form>";
 
-		echo "</div>";
-    echo "</div>";
+    echo "</div><!-- col -->";
+    echo "</div><!-- row -->";
+    echo "</div><!-- alert -->";
 
   }
 ?>
