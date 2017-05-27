@@ -25,7 +25,7 @@ session_start();
 
 </head>
 
-<body style="background-image: url(./images/login.jpg); background-size: 100%;">
+<body style="background-image: url(./img/login.jpg); background-size: 100%;">
 	<?php include('nav.php') ?>
   <div class="container" >
 
@@ -46,7 +46,7 @@ session_start();
         <form action="login.php" method="post">
           <h2 class="form-signin-heading h2-responsive wow fadeInLeft">欢迎登陆AreaLoad</h2>
           <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
-          <input type="text" name="passwd" class="form-control" placeholder="密码" required>
+          <input type="password" name="passwd" class="form-control" placeholder="密码" required>
           <button class="btn btn-lg btn-primary btn-block" input type="submit">登陆</button>
         </form>
         </div>
