@@ -68,10 +68,9 @@ if($accept != 1)
 }
 
 //If success,keep uploading
-$uploaddir = './';
-$uploadfile = $uploaddir . $courseid . '/' . basename($_FILES['userfile']['name']);
-$FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
-
+$uploaddir = './upload';
+$uploadfile = $uploaddir . '/' . basename($_FILES['userfile']['name']);
+$FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
 ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -141,6 +140,8 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION)
 		{
 			echo "文件格式不正确，请确认文件后缀名为zip、7z或者rar";
 		}
+        $correctname= $uploaddir . "/" . $courseid ."-".$_FILES['userfile']['name'];
+        rename($uploadfile,$correctname);
 	?>
       </div>
         </div>
