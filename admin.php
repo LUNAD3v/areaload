@@ -51,15 +51,17 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 $count = $counts->fetchColumn();
                 echo "<li class=\"list-group-item\">";
                 echo "<span class=\"badge\">". $count . "</span>";
+								
+								echo "<b>" . $course['name'] . "</b>" . " | " . $course['id'];
 								echo "<form action=\"course.php\" method=\"post\">";
 								echo "<input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
-		    				echo "<button class=\"badge\" input type=\"submit\">重置</button>";
+		    					echo "<button class=\"badge\" input type=\"submit\">重置</button>";
 								echo "</form>";
 								echo "<form action=\"course.php\" method=\"post\">";
 								echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
 								echo "<button class=\"badge\" input type=\"submit\">删除</button>";
 								echo "</form>";
-								echo "<b>" . $course['name'] . "</b>" . " | " . $course['id'];
+								
                 echo "</li>";
               }
 
@@ -77,13 +79,6 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
               <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
               </form>
-			  <hr>
-			  <h2>删除课程</h2>
-			  <form action="course.php" method="post">
-        <input type="text" name="delcourseid" class="form-control" placeholder="课程ID（例：web）" required>
-        <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
-        </form>
-
               </div>
             </div>
 
