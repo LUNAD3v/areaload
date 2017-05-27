@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>AreaLoad | 登陆</title>
+    <title>AreaLoad | 登录</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -44,10 +44,10 @@ session_start();
 
         <div class="jumbotron">
         <form action="login.php" method="post">
-          <h2 class="form-signin-heading h2-responsive wow fadeInLeft">欢迎登陆AreaLoad</h2>
+          <h2 class="form-signin-heading h2-responsive wow fadeInLeft">欢迎登录AreaLoad</h2>
           <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
           <input type="password" name="passwd" class="form-control" placeholder="密码" required>
-          <button class="btn btn-lg btn-primary btn-block" input type="submit">登陆</button>
+          <button class="btn btn-lg btn-primary btn-block" input type="submit">登录</button>
         </form>
         </div>
 
