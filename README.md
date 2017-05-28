@@ -26,29 +26,14 @@ git clone https://github.com/n0vad3v/areaload.git
 client_max_body_size 200m;
 ```
 
-由于使用了文件型数据库，为了防止我们的数据库和学生上传的作业被通过HTTP的方式GET下来，记得在Nginx的Server Block中做一些配置。（/c那个由于会导致css被403，暂时无法block）
+由于使用了文件型数据库`SQLite`，为了防止数据库和学生上传的作业被通过HTTP的方式GET下来，记得在Nginx的Server Block中做一些配置。
 ```
 location /db{
     return 403;
 }
 
-location /web{
+location /upload{
     return 403;
-}
-
-#location /c{
-#    return 403;
-#}
-
-location /sec{
-    return 403;
-}
-
-location /network{
-	return 403;
-}
-location /cbase{
-	return 403;
 }
 ```
 
@@ -57,9 +42,7 @@ location /cbase{
 upload_max_filesize = 200M
 ```
 
-把允许上传的学生学号列表写入db/trustlist.asc中。
-
-把index.php修改成你要的样式。
+登录后台`login.php`，默认用户名`nginx`密码`apache`，添加可以上传的学生列表。
 
 部署工作到此为止。
 
@@ -79,6 +62,7 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 - [x] 程序的模块化重构，使用统一文件来handle用于的上传操作
 - [ ] 管理页面SQL防注入
 - [ ] 多用户管理
+- [ ] 后台界面添加收作业功能
 
 # Author
 
