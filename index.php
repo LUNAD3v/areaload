@@ -45,9 +45,12 @@
   <div class="jumbotron" style="opacity: 0.8">
 
 
-	<?php foreach($array as $row)
+	<?php
+  foreach($array as $row)
   {
-    echo "<div class=\"alert alert-info\" role=\"alert\">";
+    $color = array("success", "info", "warning", "danger");
+    $eachcolor = $color[mt_rand(0, count($color) - 1)];
+    echo "<div class=\"alert alert-" . $eachcolor ."\"" . "role=\"alert\">";
     echo "<div class=\"row\">";
     echo "<div class=\"col-sm-6 col-md-10\">";
 
