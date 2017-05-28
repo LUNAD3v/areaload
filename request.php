@@ -6,8 +6,9 @@ $true=$num1+$num2;
 
 $stunumber = $_POST["number"];
 $stunumber = substr($stunumber,0,12);
+$stunumber = strip_tags($stunumber);
 $problem = $_POST["problem"];
-
+$problem = strip_tags($problem);
 //SQL injection prevention
 if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$problem))
 {
@@ -61,8 +62,7 @@ if($usercaptcha != $true)
             <h1>提交成功！</h1>
         </div><!--/ header -->
         <div class="jumbotron">
-          <p>好了，现在可以反省一下之前为什么提交错了文件了。</p>
-          <p>我们确认后会通过短信的方式通知你再次上传的。</p>
+          <p>好的，我们确认后会通过你再次上传的。</p>
         </div>
           </div>
         </div>

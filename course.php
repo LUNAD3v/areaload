@@ -36,14 +36,14 @@ $addcourseinfo = $_POST['addcourseinfo'];
 $addcoursedemand = $_POST['addcoursedemand'];
 
 //Begin ADD trustlist
-$addtrustlist = $_POST['addtrustlist'];
+$addtrustlist = strip_tags($_POST['addtrustlist']);
 if($addtrustlist)
 {
 $connect->exec("INSERT INTO 'trustlist' ('number') VALUES ('$addtrustlist');");
 }
 //End ADD trustlist
 //Begin DEL trustlist
-$deltrustlist = $_POST['deltrustlist'];
+$deltrustlist = strip_tags($_POST['deltrustlist']);
 if($deltrustlist)
 {
 $connect->exec("DELETE FROM 'trustlist' WHERE number='$deltrustlist';");
@@ -60,7 +60,7 @@ $connect->exec("INSERT INTO 'course' ('name','id','info','demand') VALUES ('$add
 //End ADD course
 
 //Begin DEL course
-$delcourseid = $_POST['delcourseid'];
+$delcourseid = strip_tags($_POST['delcourseid']);
 if($delcourseid)
 {
 $delcoursedir = "./upload/" . $delcourseid;

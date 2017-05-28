@@ -7,6 +7,14 @@ $stuname = $_POST['name'];
 $filename = $_FILES['userfile']['name'];
 $courseid = $_POST['courseid'];
 
+//SQL injection prevention
+if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$stuname))
+{
+  header("Location: ./index.php");
+  exit();
+}
+//End SQL injection prevention
+
 //Begin Database connection
 $upconnect = new PDO('sqlite:./db/db.sqlite');
 $uploaders = $upconnect->query("SELECT * FROM uploaded");
@@ -114,7 +122,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
         || $FileType == "rar"
         || $FileType == "zip"
           )
-        && ($_FILES["userfile"]["size"] < 204800000))   // 小于 200 mb
+        && ($_FILES["userfile"]["size"] < 204800000))   // Less than 200 mb
 		{
 			if ($_FILES["userfile"]["error"] > 0)
 			{
