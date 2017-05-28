@@ -1,6 +1,7 @@
 # AreaLoad
 
 ![AreaLoad](./img/areaload.png)
+
 一个用PHP编写的作业上传平台。
 [演示地址](https://lunaluna.org/areaload)
 
@@ -8,9 +9,10 @@
 
 * 限制上传学生的学号范围（保存于db/trustlist.asc）
 * 限制了上传文件的后缀名（7z,rar,zip）
-* 通过随机函数生成一个简单的数学问题防止最基本的机器自动提交
+* 通过随机函数生成一个简单的数学问题防止**最基本**的机器自动提交
 * 文件上传后即锁定，防止出现恶意同名上传覆盖掉其他学生的成绩
 * 上传文件大小限制为200M
+* 后端管理界面可动态地添加和删除课程
 
 # 如何部署
 
@@ -75,7 +77,8 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/c /var/www/areaload/web 
 - [ ] 服务端的文件扫描和正确性测试
 - [x] 编写一个Web GUI方便教师用HTTP的方式修改trustlist和清除学生提出的问题
 - [x] 程序的模块化重构，使用统一文件来handle用于的上传操作
-- [ ] 使用PHP框架重构
+- [ ] 管理页面SQL防注入
+- [ ] 多用户管理
 
 # Author
 
@@ -87,3 +90,7 @@ JavaScript and uploaded.php table design:
 
 SQL injection prevention and Student number validation design
 [@jazoma](https://github.com/jazoma)
+
+# License
+
+GNU General Public License v3.0
