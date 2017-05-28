@@ -68,7 +68,7 @@ upload_max_filesize = 200M
 使用crontab生成一个定时任务，用于方便收作业，BASH实现如下：
 ```
 #!/bin/bash
-zip -r /var/www/areaload/homework.zip /var/www/areaload/c /var/www/areaload/web /var/www/areaload/cbase /var/www/areaload/sec /var/www/areaload/network
+zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 ```
 
 # TODO
