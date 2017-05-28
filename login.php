@@ -42,7 +42,7 @@ session_start();
               }
  ?>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="opacity: 0.8">
         <form action="login.php" method="post">
           <h2 class="form-signin-heading h2-responsive wow fadeInLeft">欢迎登录AreaLoad</h2>
           <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
