@@ -3,7 +3,7 @@
 ![AreaLoad](./img/areaload.png)
 
 一个用PHP编写的作业上传平台。
-[演示地址](https://lunaluna.org/areaload)
+[演示地址](http://areaload.lunaluna.org)
 
 # 设计特性
 
@@ -64,6 +64,8 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 - [ ] 多用户管理
 - [ ] 后台界面添加收作业功能
 - [ ] request页面防注入
+- [ ] 解决不同学号上传同名文件覆盖问题
+- [ ] 改善收作业功能
 
 # Author
 
