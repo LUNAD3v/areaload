@@ -7,6 +7,7 @@ $true=$num1+$num2;
 $stunumber = $_POST["number"];
 $stunumber = substr($stunumber,0,12);
 $stunumber = strip_tags($stunumber);
+$phone = $_POST['phone'];
 $problem = $_POST["problem"];
 $problem = strip_tags($problem);
 //SQL injection prevention
@@ -25,7 +26,7 @@ if($usercaptcha != $true)
 
   $db = new SQLite3('./db/db.sqlite');
 
-  $db->exec("INSERT INTO 'problem' ('number','content') VALUES ('$stunumber', '$problem');");
+  $db->exec("INSERT INTO 'problem' ('number','content','phone') VALUES ('$stunumber', '$problem', '$phone');");
   ?>
 
   <!DOCTYPE html>

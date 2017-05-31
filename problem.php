@@ -40,6 +40,7 @@
 
         <form action="request.php" method="post">
               <input type="text" name="number" placeholder="学号" required>
+              <input type="text" name="phone" placeholder="手机号码" required>
               <textarea input type="text" class="form-control" rows="5" name="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
               <b>请算出答案：</b><input type="text" name="captcha" placeholder="<?php echo $number1?>+ <?php echo $number2?> = ?" required>
               <input type="hidden" name="num1" value="<?php echo $number1?>"></input>

@@ -51,7 +51,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 $count = $counts->fetchColumn();
                 echo "<li class=\"list-group-item\">";
                 echo "<span class=\"badge\">". $count . "</span>";
-								
+
 								echo "<b>" . $course['name'] . "</b>" . " | " . $course['id'];
 								echo "<form action=\"course.php\" method=\"post\">";
 								echo "<input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
@@ -61,7 +61,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 								echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
 								echo "<button class=\"badge\" input type=\"submit\">删除</button>";
 								echo "</form>";
-								
+
                 echo "</li>";
               }
 
@@ -94,7 +94,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 echo "<li class=\"list-group-item\">";
                 echo "<b>".$ticket['number']."</b>" . " | ";
                 echo $ticket['content'];
-                echo "</li>";
+								echo " | ";
+								echo $ticket['phone'];
+								echo "</li>";
               }
                 ?>
             </ul>
