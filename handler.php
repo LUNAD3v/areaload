@@ -122,7 +122,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
         || $FileType == "rar"
         || $FileType == "zip"
           )
-        && ($_FILES["userfile"]["size"] < 204800000))   // Less than 200 mb
+        && ($_FILES["userfile"]["size"] < 1024000000))   // Less than 1 Gib
 		{
 			if ($_FILES["userfile"]["error"] > 0)
 			{
