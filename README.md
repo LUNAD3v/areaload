@@ -63,7 +63,7 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 - [ ] 管理页面SQL防注入
 - [ ] 多用户管理
 - [ ] 后台界面添加收作业功能
-- [ ] request页面防注入
+- [x] request页面防注入
 - [ ] 解决不同学号上传同名文件覆盖问题
 - [ ] 改善收作业功能
 

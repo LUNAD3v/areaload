@@ -8,10 +8,18 @@ $stunumber = $_POST["number"];
 $stunumber = substr($stunumber,0,12);
 $stunumber = strip_tags($stunumber);
 $phone = $_POST['phone'];
+$phone = strip_tags($phone);
+//SQL injection prevention
+if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DETELE|;)#i',$phone))
+{
+  header("Location: ./problem.php");
+  exit();
+}
+//End SQL injection prevention
 $problem = $_POST["problem"];
 $problem = strip_tags($problem);
 //SQL injection prevention
-if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$problem))
+if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DELETE|;)#i',$problem))
 {
   header("Location: ./problem.php");
   exit();
