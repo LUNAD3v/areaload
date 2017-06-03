@@ -35,7 +35,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
 <body>
 <img src="./img/admin.jpeg" style="position: fixed;width: 100%; opacity: 0.2; z-index: -100" alt="">
-<?php include('nav.php') ?>
+<?php include('./partial/nav.php') ?>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-12">
@@ -140,7 +140,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
         </div><!--/row-->
 
       </div> <!-- /container -->
-      <?php include('footer.php') ?>
+      <?php include('./partial/footer.php') ?>
     <!-- SCRIPTS -->
 
     <!-- JQuery -->

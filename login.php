@@ -26,7 +26,7 @@ session_start();
 </head>
 
 <body style="background-image: url(./img/login.jpg); background-size: 100%;">
-	<?php include('nav.php') ?>
+	<?php include('./partial/nav.php') ?>
   <div class="container" >
 
 <?php
