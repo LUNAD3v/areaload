@@ -1,7 +1,9 @@
 <?php
+session_start();
 //Variables
 $stunumber = $_POST["number"];
 $stunumber = substr($stunumber,0,12);//Overflow prevention
+$stunumber = strip_tags($stunumber);
 $stuip = $_SERVER['REMOTE_ADDR'];
 $stuname = $_POST['name'];
 $filename = $_FILES['userfile']['name'];
@@ -10,7 +12,8 @@ $courseid = $_POST['courseid'];
 //SQL injection prevention
 if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$stuname))
 {
-  header("Location: ./index.php");
+  $_SESSION['error']= 'injection';
+  header("Location: ./error.php");
   exit();
 }
 //End SQL injection prevention
@@ -51,7 +54,8 @@ foreach ($trustlists as $test_key) {
 foreach ($uploaders as $test_key) {
   if($stunumber == $test_key["number"])
   {
-    header("Location: ./duplicate.html");
+    $_SESSION['error']= 'duplicate';
+    header("Location: ./error.php");
     exit();
   }
 }
@@ -64,7 +68,10 @@ $num2=$_POST["num2"];
 $true=$num1+$num2;
 if($usercaptcha != $true)
 {
-    $accept = 0;
+    $_SESSION['error']= 'captcha';
+    header("Location: ./error.php");
+    exit();
+    $accept= 0;
 }
 //End captcha section
 

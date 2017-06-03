@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -23,33 +26,27 @@
 
 <body>
 <img src="./img/success.jpg" style="position: fixed;width: 100%; opacity: 0.6; z-index: -100" alt="">
-<nav class="navbar navbar-default" style="opacity: 0.8">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        </div>
-        <a class="navbar-brand"><b>AreaLoad</b></a>
-        <div id="navbar" class="navbar-collapse collapse navbar-right">
-            <ul class="nav navbar-nav">
-              <li><a href="./index.php">首页</a></li>
-              <li><a href="./problem.php">申请重新上传</a></li>
-              <li><a href="./admin.php">管理面板</a></li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
-    </div>
-</nav>
+<?php include('./partial/nav.php') ?>
 
     <div class="container">
-
 
       <div class="page-header">
           <h1>上传信息</h1>
       </div><!--/ header -->
       <div class="jumbotron">
-        <p>你输入的学号已经上传过一次文件了，不能重复上传，如需再次上传，请填写“申请重新上传”页面并等待人工处理。</p>
+        <?php
+          if($_SESSION['error']=='duplicate')
+          echo "<p>你输入的学号已经上传过一次文件了，不能重复上传，如需再次上传，请填写“申请重新上传”页面并等待人工处理。</p>";
+          elseif ($_SESSION['error']=='captcha')
+          echo "<p>验证码不正确</p>";
+          elseif ($_SESSION['error']=='injection')
+          echo "<p>检测到潜在的攻击，若您发现了漏洞，欢迎向我们上报！邮箱：lunaluna@riseup.net。</p>";
+         ?>
       </div>
         </div>
+
+
+        <?php include('./partial/footer.php') ?>
       </div> <!-- /container -->
     <!-- SCRIPTS -->
 

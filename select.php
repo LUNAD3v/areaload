@@ -3,7 +3,7 @@
   $number2 = rand(0,10);
   $result = $number1 + $number2;
 
-//If no post data from index, redirect to index.php
+//If no post data from index(direct access to select.php), redirect to index.php
   if(!$_POST['courseid'])
   {
     header("Location: ./index.php");
@@ -11,6 +11,15 @@
   }
 
   $courseid = $_POST['courseid'];//Get courseid from index.php
+  $courseid = strip_tags($courseid);
+  //SQL injection prevention
+  if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DELETE|;)#i',$courseid))
+  {
+    $_SESSION['error']='injection';
+    header("Location: ./error.php");
+    exit();
+  }
+  //End SQL injection prevention
   $connect = new PDO('sqlite:./db/db.sqlite');
   $uploaders = $connect->query("SELECT * FROM uploaded WHERE course='$courseid'");
   $coursenamearray = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");

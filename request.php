@@ -1,4 +1,5 @@
 <?php
+session_start();
 $usercaptcha=$_POST["captcha"];
 $num1=$_POST["num1"];
 $num2=$_POST["num2"];
@@ -12,7 +13,8 @@ $phone = strip_tags($phone);
 //SQL injection prevention
 if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DETELE|;)#i',$phone))
 {
-  header("Location: ./problem.php");
+  $_SESSION['error']='injection';
+  header("Location: ./error.php");
   exit();
 }
 //End SQL injection prevention
@@ -21,14 +23,16 @@ $problem = strip_tags($problem);
 //SQL injection prevention
 if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DELETE|;)#i',$problem))
 {
-  header("Location: ./problem.php");
+  $_SESSION['error']='injection';
+  header("Location: ./error.php");
   exit();
 }
 //End SQL injection prevention
 
 if($usercaptcha != $true)
 {
-  header("Location: ./problem.php");
+  $_SESSION['error']='captcha';
+  header("Location: ./error.php");
   exit();
 }
 

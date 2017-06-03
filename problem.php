@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $number1 = rand(0,30);
   $number2 = rand(0,10);
   $result = $number1 + $number2;
