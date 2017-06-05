@@ -37,6 +37,7 @@ $addcoursedemand = $_POST['addcoursedemand'];
 
 //Begin ADD trustlist
 $addtrustlist = strip_tags($_POST['addtrustlist']);
+$addtrustlist = substr($addtrustlist,12);//Overflow prevention
 if($addtrustlist)
 {
 $connect->exec("INSERT INTO 'trustlist' ('number') VALUES ('$addtrustlist');");
