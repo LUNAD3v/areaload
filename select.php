@@ -21,7 +21,7 @@
   }
   //End SQL injection prevention
   $connect = new PDO('sqlite:./db/db.sqlite');
-  $uploaders = $connect->query("SELECT * FROM uploaded WHERE course='$courseid'");
+  $uploaders = $connect->query("SELECT * FROM uploaded WHERE course='$courseid' ORDER BY number;");
   $coursenamearray = $connect->query("SELECT name FROM course WHERE id LIKE '$courseid';");
   $courseinfoarray = $connect->query("SELECT info FROM course WHERE id LIKE '$courseid';");
   $coursedemandarray = $connect->query("SELECT demand FROM course WHERE id LIKE '$courseid';");
