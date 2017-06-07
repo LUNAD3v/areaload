@@ -50,7 +50,7 @@
     $titlearray = $connect->query("SELECT DISTINCT category,categoryid FROM course;");
     foreach ($titlearray as $title)
     {
-        echo "<h1>" . $title['category'] . "</h1>";
+        echo "<h2>" . $title['category'] . "</h2>";
         $tmpcategoryid = $title['categoryid'];
         $coursearray = $connect->query("SELECT * FROM course WHERE categoryid = '$tmpcategoryid';");
 
@@ -77,6 +77,7 @@
         echo "</div><!-- row -->";
         echo "</div><!-- alert -->";
         }
+        echo "<hr>";
     }
 
 
