@@ -10,15 +10,15 @@
 * 限制上传学生的学号范围
 * 限制了上传文件的后缀名（7z,rar,zip）
 * 通过随机函数生成一个简单的数学问题防止**最基本**的机器自动提交
-* 文件上传后即锁定，防止出现同名上传覆盖掉其他学生的作业
+* 文件上传后即锁定，防止出现同学号不同文件名重复上传覆盖掉其他学生的作业
 * 上传文件大小限制为1Gib
-* 后端管理界面可动态地添加和删除课程
+* 后端管理界面可动态地添加和删除课程和分类
 
 # 如何部署
 
 首先Clone这个Repo
 ```
-git clone https://github.com/n0vad3v/areaload.git
+git clone https://github.com/LUNAD3v/areaload.git
 ```
 
 我们喜欢Nginx，如果你用的是Nginx，那么在Nginx的全局（一般为/etc/nginx/nginx.conf）配置中，添加如下行
@@ -75,7 +75,7 @@ Architect and major PHP programming:
 JavaScript and uploaded.php table design:
 [@allenliu](https://github.com/allenliu123)
 
-SQL injection prevention and Student number validation design
+SQL injection prevention and Student number validation design:
 [@jazoma](https://github.com/jazoma)
 
 # License
