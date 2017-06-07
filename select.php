@@ -4,7 +4,7 @@
   $result = $number1 + $number2;
 
 //If no post data from index(direct access to select.php), redirect to index.php
-  if(!$_POST['courseid'])
+  if(!$_POST['courseid'] || !$_POST['coursecategoryid'])
   {
     header("Location: ./index.php");
     exit();
@@ -12,8 +12,18 @@
 
   $courseid = $_POST['courseid'];//Get courseid from index.php
   $courseid = strip_tags($courseid);
+  $coursecategoryid = $_POST['coursecategoryid'];
+  $coursecategoryid = strip_tags($coursecategoryid);
   //SQL injection prevention
   if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DELETE|;)#i',$courseid))
+  {
+    $_SESSION['error']='injection';
+    header("Location: ./error.php");
+    exit();
+  }
+  //End SQL injection prevention
+  //SQL injection prevention
+  if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DELETE|;)#i',$coursecategoryid))
   {
     $_SESSION['error']='injection';
     header("Location: ./error.php");
@@ -95,6 +105,7 @@
                 选择文件&hellip;
             </label><input type="file" id="fileSelect" name="userfile" style="visibility:hidden;" onchange="cli()">
             <input type="hidden" name="courseid" value="<?php echo $courseid?>"></input>
+            <input type="hidden" name="coursecategoryid" value="<?php echo $coursecategoryid?>"></input>
             <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
             <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
             <button class="btn btn-lg btn-danger btn-block" input type="submit">上传</button>

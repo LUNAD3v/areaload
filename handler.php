@@ -8,6 +8,7 @@ $stuip = $_SERVER['REMOTE_ADDR'];
 $stuname = $_POST['name'];
 $filename = $_FILES['userfile']['name'];
 $courseid = $_POST['courseid'];
+$coursecategoryid = $_POST['coursecategoryid'];
 
 //SQL injection prevention
 if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$stuname))
@@ -82,9 +83,9 @@ if($accept != 1)
   exit();
 }
 
-//If success,keep uploading
+//If success,keep uploading,Upload to /upload/$coursecategory/$courseid
 $uploaddir = './upload/';
-$uploadfile = $uploaddir . $courseid . "/" . basename($_FILES['userfile']['name']);
+$uploadfile = $uploaddir . $coursecategoryid . "/" . $courseid . "/" . basename($_FILES['userfile']['name']);
 $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
 ?>
 <!DOCTYPE html>
@@ -155,7 +156,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
 		{
 			echo "文件格式不正确，请确认文件后缀名为zip、7z或者rar";
 		}
-        $correctname= $uploaddir . $courseid . "/" . $_FILES['userfile']['name'];
+        $correctname= $uploaddir . $coursecategoryid . "/" .  $courseid . "/" . $_FILES['userfile']['name'];
         rename($uploadfile,$correctname);
 	?>
       </div>
