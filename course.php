@@ -57,7 +57,9 @@ $connect->exec("DELETE FROM 'trustlist' WHERE number='$deltrustlist';");
 //Begin ADD course
 if($addcoursename && $addcourseid && $addcourseinfo && $addcoursedemand && $addcategory && $addcategoryid)
 {
-$addcoursedir = "./upload/" . $addcategory . "/" . $addcourseid;
+$addcategorydir = "./upload/" . $addcategoryid;
+mkdir($addcategorydir);
+$addcoursedir = "./upload/" . $addcategoryid . "/" . $addcourseid;
 mkdir($addcoursedir);
 $connect->exec("INSERT INTO 'course' ('name','id','info','demand','category','categoryid') VALUES ('$addcoursename','$addcourseid','$addcourseinfo','$addcoursedemand','$addcategory','$addcategoryid');");
 }
