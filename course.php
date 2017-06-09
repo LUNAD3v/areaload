@@ -36,21 +36,30 @@ $addcourseinfo = $_POST['addcourseinfo'];
 $addcoursedemand = $_POST['addcoursedemand'];
 $addcategory = $_POST['addcategory'];
 $addcategoryid = $_POST['addcategoryid'];
+
 $delcategoryid = $_POST['delcategoryid'];
+
+$editcourseid = $_POST['editcourseid'];
+$editcoursename = $_POST['editcoursename'];
+$editcourseinfo = $_POST['editcourseinfo'];
+$editcoursedemand = $_POST['editcoursedemand'];
 
 //Begin ADD trustlist
 $addtrustlist = strip_tags($_POST['addtrustlist']);
 $addtrustlist = substr($addtrustlist,12);//Overflow prevention
 if($addtrustlist)
 {
-$connect->exec("INSERT INTO 'trustlist' ('number') VALUES ('$addtrustlist');");
+$connect->exec("INSERT INTO 'trustlist'
+				('number')
+				VALUES ('$addtrustlist');");
 }
 //End ADD trustlist
 //Begin DEL trustlist
 $deltrustlist = strip_tags($_POST['deltrustlist']);
 if($deltrustlist)
 {
-$connect->exec("DELETE FROM 'trustlist' WHERE number='$deltrustlist';");
+$connect->exec("DELETE FROM 'trustlist'
+				WHERE number='$deltrustlist';");
 }
 //End DEL trustlist
 
@@ -61,7 +70,10 @@ $addcategorydir = "./upload/" . $addcategoryid;
 mkdir($addcategorydir);
 $addcoursedir = "./upload/" . $addcategoryid . "/" . $addcourseid;
 mkdir($addcoursedir);
-$connect->exec("INSERT INTO 'course' ('name','id','info','demand','category','categoryid') VALUES ('$addcoursename','$addcourseid','$addcourseinfo','$addcoursedemand','$addcategory','$addcategoryid');");
+$connect->exec("INSERT INTO 'course'
+				('name','id','info','demand','category','categoryid')
+				VALUES
+				('$addcoursename','$addcourseid','$addcourseinfo','$addcoursedemand','$addcategory','$addcategoryid');");
 }
 //End ADD course
 
@@ -71,7 +83,8 @@ if($delcourseid)
 {
 $delcoursedir = "./upload/" . $delcoursecategory . $delcourseid;
 deleteDirectory($delcoursedir);
-$connect->exec("DELETE FROM 'course' WHERE id='$delcourseid';");
+$connect->exec("DELETE FROM 'course'
+				WHERE id='$delcourseid';");
 }
 //End DEL course
 
@@ -81,7 +94,8 @@ if($delcategoryid)
 {
 $delcategorydir = "./upload/" . $delcategoryid ;
 deleteDirectory($delcategorydir);
-$connect->exec("DELETE FROM 'course' WHERE categoryid='$delcategoryid';");
+$connect->exec("DELETE FROM 'course'
+				WHERE categoryid='$delcategoryid';");
 }
 //End DEL category
 
@@ -89,9 +103,19 @@ $connect->exec("DELETE FROM 'course' WHERE categoryid='$delcategoryid';");
 $delticket = $_POST['delticket'];
 if($delticket)
 {
-$connect->exec("DELETE FROM 'problem' WHERE number='$delticket';");
+$connect->exec("DELETE FROM 'problem'
+				WHERE number='$delticket';");
 }
 //End DEL ticket
+
+//Begin EDIT course
+if($editcourseid)
+{
+$connect->exec("UPDATE 'course'
+				SET name='$editcoursename',info='$editcourseinfo',demand='$editcoursedemand'
+				WHERE id='$editcourseid';");
+}
+//End EDIT course
 
 //Begin Reset course
 $rstcourseid = $_POST['rstcourseid'];
@@ -101,7 +125,8 @@ if($rstcourseid)
 $rstcoursedir = "./upload/" . $rstcoursecategoryid . "/" . $rstcourseid;
 deleteDirectory($rstcoursedir);//Purge files
 mkdir($rstcoursedir);
-$connect->exec("DELETE FROM 'uploaded' WHERE course='$rstcourseid';");//Purge DB
+$connect->exec("DELETE FROM 'uploaded'
+				WHERE course='$rstcourseid';");//Purge DB
 }
 
 header("Location: ./admin.php");

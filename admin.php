@@ -61,6 +61,10 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 								echo "<input type=\"hidden\" name=\"rstcoursecategoryid\" value=\"$eachcoursecategoryid\"></input>";
 		    					echo "<button class=\"badge\" input type=\"submit\">重置</button>";
 								echo "</form>";
+								echo "<form action=\"edit.php\" method=\"post\">";
+								echo "<input type=\"hidden\" name=\"editcourseid\" value=\"$eachcourseid\"></input>";
+		    					echo "<button class=\"badge\" input type=\"submit\">修改</button>";
+								echo "</form>";
 								echo "<form action=\"course.php\" method=\"post\">";
 								echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
 								echo "<button class=\"badge\" input type=\"submit\">删除</button>";
@@ -102,7 +106,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               <input type="text" name="addcoursename" class="form-control" placeholder="课程名称（例：Web技术基础）" required>
               <input type="text" name="addcourseid" class="form-control" placeholder="课程ID（例：web）" required>
 			  <input type="text" name="addcategory" class="form-control" placeholder="分类（例：前端）" required>
-			  <input type="text" name="addcategoryid" class="form-control" placeholder="课程ID（例：frontend）" required>
+			  <input type="text" name="addcategoryid" class="form-control" placeholder="分类ID（例：frontend）" required>
               <textarea input type="text" class="form-control" rows="2" name="addcourseinfo" placeholder="课程介绍" required></textarea>
               <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
               <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
