@@ -2,7 +2,7 @@
   session_start();
   $id = $_POST['editcourseid'];
   $connect = new PDO('sqlite:./db/db.sqlite');
-  $infoarray = $connect->query("SELECT * FROM course WHERE id='$id';");
+  $infoarray = $connect->query("SELECT name,id,info,demand FROM course WHERE id='$id';");
   foreach ($infoarray as $key)
   {
       $name = $key['name'];

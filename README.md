@@ -66,6 +66,7 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 - [x] request页面防注入
 - [ ] 解决不同学号上传同名文件覆盖问题
 - [ ] 改善收作业功能
+- [ ] 修复修改课程部分无法提交修改的Bug
 
 # Author
 
