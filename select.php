@@ -45,11 +45,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title><?php
-  foreach ($coursenamearray as $realcoursename) {
-    echo $realcoursename[0];
-  }
-  ?>作业上传</title>
+    <title>作业上传</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -75,7 +71,7 @@
   <div class="container">
 
 
-	<div class="jumbotron" style="opacity: 0.8">
+	<div class="jumbotron">
 
 		<h2>
       <b><?php
@@ -97,6 +93,7 @@
 
       <div class="row">
         <div class="col-lg-6 col-sm-6 col-xs-12">
+
           <input type="text" name="number" class="form-control" placeholder="学号" required autofocus>
           <input type="text" name="name" class="form-control" placeholder="姓名" required>
           <b>请算出答案：</b><input type="text" name="captcha" placeholder="<?php echo $number1?>+ <?php echo $number2?> = ?" required>
@@ -109,6 +106,7 @@
             <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
             <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
             <button class="btn btn-lg btn-danger btn-block" input type="submit">上传</button>
+
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->
 
         <div class="col-lg-6 col-sm-6 col-xs-12">

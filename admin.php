@@ -39,9 +39,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-12">
-            <div class="page-header">
-                <h1>课程列表</h1>
-              </div><!--/ header -->
+			  <div class="panel panel-success">
+			    <div class="panel-heading">课程管理</div>
+			    <div class="panel-body">
               <ul class="list-group">
 
               <?php
@@ -73,8 +73,10 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 echo "</li>";
               }
                 ?>
-			</form>
+
             </ul>
+		</div>
+	</div>
 
 			<div class="panel panel-success">
               <div class="panel-heading">分类管理</div>
@@ -117,9 +119,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
           </div><!--<div class="col-md-6 col-sm-12">-->
 
           <div class="col-md-6 col-sm-12">
-            <div class="page-header">
-                <h1>Tickets</h1>
-              </div><!--/ header -->
+			  <div class="panel panel-danger">
+			    <div class="panel-heading">Tickets</div>
+			    <div class="panel-body">
               <ul class="list-group">
               <?php
               foreach ($tickets as $ticket) {
@@ -132,13 +134,16 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               }
                 ?>
             </ul>
+
 			  <form action="course.php" method="post">
               <input type="text" name="delticket" class="form-control" placeholder="学号" required>
               <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
               </form>
-			<div class="page-header">
-                <h1>信任列表</h1>
-              </div><!--/ header -->
+		  </div>
+	  </div>
+	  <div class="panel panel-danger">
+		<div class="panel-heading">信任学号（段）</div>
+		<div class="panel-body">
               <ul class="list-group">
               <?php
               foreach ($trustlists as $trustlist) {
@@ -148,7 +153,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
               }
                 ?>
             </ul>
-		        <div class="panel panel-success">
+		</div>
+	</div>
+		        <div class="panel panel-danger">
               <div class="panel-heading">信任学号（段）管理</div>
               <div class="panel-body">
 			  			<h2>添加信任学号（段）</h2>

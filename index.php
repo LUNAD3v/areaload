@@ -90,16 +90,7 @@
 
   </div> <!-- /container -->
   <?php include('./partial/footer.php') ?>
-    <!-- SCRIPTS -->
-<script>
-function cli(){
-	var na=document.getElementById("fileSelect").value;
-	if(na!=''){
-	document.getElementById("na").value=na;}
-	else
-		document.getElementById("na").value="当前未选择文件";
-	}
-</script>
+
     <!-- JQuery -->
     <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
 
