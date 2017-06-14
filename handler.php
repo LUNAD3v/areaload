@@ -144,7 +144,8 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
           echo $_FILES['userfile']['name'];
           echo "已经成功上传";
           echo "</p>";
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$filename','$courseid');");
+          $realname = $stunumber . "-" . $filename;
+          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$realname','$courseid');");
 				} else {
 					echo "<p>";
 					echo "文件错误！";
@@ -156,7 +157,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
 		{
 			echo "文件格式不正确，请确认文件后缀名为zip、7z或者rar";
 		}
-        $correctname= $uploaddir . $coursecategoryid . "/" .  $courseid . "/" . $_FILES['userfile']['name'];
+        $correctname= $uploaddir . $coursecategoryid . "/" .  $courseid . "/" . $stunumber . "-" . $_FILES['userfile']['name'];
         rename($uploadfile,$correctname);
 	?>
       </div>
