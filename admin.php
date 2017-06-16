@@ -37,7 +37,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
             height: 50px;
             width: 100%;
             line-height: 50px;
-            border-bottom:0.5px solid rgba(84,215,149,0.8); 
+            border-bottom:0.5px solid rgba(84,215,149,0.8);
 
         }
         .leftside>li:hover {
@@ -52,7 +52,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
             width: 100%;
             line-height: 50px;
             font-size: 1.2em;
-            border-bottom:0.5px solid rgba(84,215,149,0.8); 
+            border-bottom:0.5px solid rgba(84,215,149,0.8);
         }
         .bu {
             border: 0px;
@@ -76,11 +76,11 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
     <div class="container">
         <div class="col-md-3">
             <ul class="leftside">
-                <li id="li1">&nbsp&nbsp课程管理<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="li2">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="li3">&nbsp&nbsp添加课程<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="li4">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="li5">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="coursemanage">&nbsp&nbsp课程管理<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="categorymanage">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="addcourse">&nbsp&nbsp添加课程<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="tickets">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="trustlist">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
             </ul>
         </div>
         <div class="col-md-9">
@@ -233,35 +233,35 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
 <script>
 $(document).ready(function(){
-    $("#li1").click(function(){
+    $("#coursemanage").click(function(){
         $("#first").show(800);
         $("#second").hide(800);
         $("#third").hide(800);
         $("#fourth").hide(800);
         $("#fifth").hide(800);
     });
-    $("#li2").click(function(){
+    $("#categorymanage").click(function(){
         $("#first").hide(800);
         $("#second").show(800);
         $("#third").hide(800);
         $("#fourth").hide(800);
         $("#fifth").hide(800);
      });
-    $("#li3").click(function(){
+    $("#addcourse").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").show(800);
         $("#fourth").hide(800);
         $("#fifth").hide(800);
     });
-    $("#li4").click(function(){
+    $("#tickets").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").hide(800);
         $("#fourth").show(800);
         $("#fifth").hide(800);
     });
-    $("#li5").click(function(){
+    $("#trustlist").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").hide(800);

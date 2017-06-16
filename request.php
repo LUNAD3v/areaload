@@ -66,7 +66,7 @@ if($usercaptcha != $true)
 
   <body>
 <img src="./img/problem.jpg" style="position: fixed;width: 100%; opacity: 0.6; z-index: -100" alt="">
-<?php include('nav.php') ?>
+<?php include('./partial/nav.php') ?>
 
       <div class="container">
 
@@ -79,7 +79,7 @@ if($usercaptcha != $true)
         </div>
           </div>
         </div>
-        <?php include('footer.php') ?>
+        <?php include('./partial/footer.php') ?>
       <!-- SCRIPTS -->
 
       <!-- JQuery -->
