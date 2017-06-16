@@ -79,7 +79,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 <li id="li1">&nbsp&nbsp课程管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="li2">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="li3">&nbsp&nbsp添加课程<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="li4">&nbsp&nbspTicket<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="li4">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="li5">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
             </ul>
         </div>
