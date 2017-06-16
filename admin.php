@@ -234,39 +234,39 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 <script>
 $(document).ready(function(){
     $("#li1").click(function(){
-        $("#first").show();
-        $("#second").hide();
-        $("#third").hide();
-        $("#fourth").hide();
-        $("#fifth").hide();
+        $("#first").show(800);
+        $("#second").hide(800);
+        $("#third").hide(800);
+        $("#fourth").hide(800);
+        $("#fifth").hide(800);
     });
     $("#li2").click(function(){
-        $("#first").hide();
-        $("#second").show();
-        $("#third").hide();
-        $("#fourth").hide();
-        $("#fifth").hide();
+        $("#first").hide(800);
+        $("#second").show(800);
+        $("#third").hide(800);
+        $("#fourth").hide(800);
+        $("#fifth").hide(800);
      });
     $("#li3").click(function(){
-        $("#first").hide();
-        $("#second").hide();
-        $("#third").show();
-        $("#fourth").hide();
-        $("#fifth").hide();
+        $("#first").hide(800);
+        $("#second").hide(800);
+        $("#third").show(800);
+        $("#fourth").hide(800);
+        $("#fifth").hide(800);
     });
     $("#li4").click(function(){
-        $("#first").hide();
-        $("#second").hide();
-        $("#third").hide();
-        $("#fourth").show();
-        $("#fifth").hide();
+        $("#first").hide(800);
+        $("#second").hide(800);
+        $("#third").hide(800);
+        $("#fourth").show(800);
+        $("#fifth").hide(800);
     });
     $("#li5").click(function(){
-        $("#first").hide();
-        $("#second").hide();
-        $("#third").hide();
-        $("#fourth").hide();
-        $("#fifth").show();
+        $("#first").hide(800);
+        $("#second").hide(800);
+        $("#third").hide(800);
+        $("#fourth").hide(800);
+        $("#fifth").show(800);
     });
 });
 </script>
