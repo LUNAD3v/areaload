@@ -134,7 +134,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         foreach ($categoryarray as $category) {
                           $eachcoursecategory = $category['category'];
                           $eachcoursecategoryid = $category['categoryid'];
-                          echo "<li class=\"list-group-item\">";
+                          echo "<li class=\"list-group-item li\">";
 
                                           echo "<b>" . $eachcoursecategory . "</b>" . " | " . "$eachcoursecategoryid";
                                           echo "<form action=\"course.php\" method=\"post\">";
