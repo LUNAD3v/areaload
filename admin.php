@@ -11,6 +11,8 @@ $connect = new PDO('sqlite:./db/db.sqlite');
 $array = $connect->query("SELECT * FROM course;");
 $tickets = $connect->query("SELECT * FROM problem");
 $trustlists = $connect->query("SELECT * FROM trustlist");
+$counts = $connect->query("SELECT COUNT(*) FROM problem;");
+$count = $counts->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -68,6 +70,15 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
             color: green;
             line-height: 50px;
         }
+        .badge {
+            border-radius:200px;
+            <?php
+            if($count == 0) 
+            {echo "background:rgb(0,176,240);";}
+            else
+            {echo "background:rgba(247,0,0,0.7);";}
+            ?>
+        }
     </style>
 </head>
 <body>
@@ -79,7 +90,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 <li id="coursemanage">&nbsp&nbsp课程管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="categorymanage">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="addcourse">&nbsp&nbsp添加课程<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="tickets">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li class="tickets">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="trustlist">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
             </ul>
         </div>
@@ -254,7 +265,7 @@ $(document).ready(function(){
         $("#fourth").hide(800);
         $("#fifth").hide(800);
     });
-    $("#tickets").click(function(){
+    $(".tickets").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").hide(800);

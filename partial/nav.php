@@ -17,11 +17,11 @@
                     $connect = new PDO('sqlite:./db/db.sqlite');
                     $counts = $connect->query("SELECT COUNT(*) FROM problem;");
                     $count = $counts->fetchColumn();
-                    if($count == 0)
-                    echo "<button id=\"tickets\" type=\"button\" class=\"btn btn-primary\">Tickets <span class=\"badge\">" . $count . "</span></button>";
+                    if($count == 0) 
+                    echo "<li class=\"tickets\"><a>Tickets <span class=\"badge\" style=\"background:rgb(0,176,240);border-radius:200px\">" . $count . "</span></a></li>";
                     else
                     {
-                    echo "<button id=\"tickets\" type=\"button\" class=\"btn btn-danger\">Tickets <span class=\"badge\">" . $count . "</span></button>";
+                    echo "<li class=\"tickets\"><a>Tickets <span class=\"badge\" style=\"background:red\">" . $count . "</span></a></li>";
                     }
                 }
                 elseif (basename($_SERVER['PHP_SELF']) == 'request.php')
