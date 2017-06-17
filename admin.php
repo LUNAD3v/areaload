@@ -45,7 +45,7 @@ $count = $counts->fetchColumn();
         .leftside>li:hover {
             background: rgba(84,215,149,0.8);
         }
-        #second,#third,#fourth,#fifth,#sixth {
+        #second,#third,#fourth {
             display: none;
         }
         .head{
@@ -89,7 +89,6 @@ $count = $counts->fetchColumn();
             <ul class="leftside">
                 <li id="coursemanage">&nbsp&nbsp课程管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="categorymanage">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="addcourse">&nbsp&nbsp添加课程<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li class="tickets">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="trustlist">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
             </ul>
@@ -135,6 +134,17 @@ $count = $counts->fetchColumn();
                       ?>
 
                     </ul>
+                    <hr>
+                    <h3>添加课程</h3>
+                    <form action="course.php" method="post">
+                        <input type="text" name="addcoursename" class="form-control" placeholder="课程名称（例：Web技术基础）" required>
+                        <input type="text" name="addcourseid" class="form-control" placeholder="课程ID（例：web）" required>
+                        <input type="text" name="addcategory" class="form-control" placeholder="分类（例：前端）" required>
+                        <input type="text" name="addcategoryid" class="form-control" placeholder="分类ID（例：frontend）" required>
+                        <textarea input type="text" class="form-control" rows="2" name="addcourseinfo" placeholder="课程介绍" required></textarea>
+                        <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
+                        <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
+                    </form>
                     </div>
                 </div>
                 <div id="second">
@@ -159,21 +169,6 @@ $count = $counts->fetchColumn();
                     </div>
                 </div>
                 <div id="third">
-                    <div class="head">&nbsp&nbsp添加课程</div>
-                    <div class="panel-body">
-                        <h3>添加课程</h3>
-                        <form action="course.php" method="post">
-                            <input type="text" name="addcoursename" class="form-control" placeholder="课程名称（例：Web技术基础）" required>
-                            <input type="text" name="addcourseid" class="form-control" placeholder="课程ID（例：web）" required>
-                            <input type="text" name="addcategory" class="form-control" placeholder="分类（例：前端）" required>
-                            <input type="text" name="addcategoryid" class="form-control" placeholder="分类ID（例：frontend）" required>
-                            <textarea input type="text" class="form-control" rows="2" name="addcourseinfo" placeholder="课程介绍" required></textarea>
-                            <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
-                            <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
-                        </form>
-                    </div>
-                </div>
-                <div id="fourth">
                     <div class="head">&nbsp&nbspTickets</div>
                     <div class="panel-body">
                     <ul class="list-group">
@@ -196,7 +191,7 @@ $count = $counts->fetchColumn();
 
                     </div>
                 </div>
-                <div id="fifth">
+                <div id="fourth">
                     <div class="head">&nbsp&nbsp信任学号（段）</div>
                     <div class="panel-body">
                         <ul class="list-group">
@@ -208,8 +203,7 @@ $count = $counts->fetchColumn();
                         }
                         ?>
                         </ul>
-                    </div>
-                    <div class="panel-body">
+                        <hr/>
                         <h3>添加信任学号（段）</h3>
                         <p>通配部分使用**代替，如允许所有16级信息学院计算机类的学生上传，则填写：“63160704****”</p>
                         <form action="course.php" method="post">
@@ -249,35 +243,24 @@ $(document).ready(function(){
         $("#second").hide(800);
         $("#third").hide(800);
         $("#fourth").hide(800);
-        $("#fifth").hide(800);
     });
     $("#categorymanage").click(function(){
         $("#first").hide(800);
         $("#second").show(800);
         $("#third").hide(800);
         $("#fourth").hide(800);
-        $("#fifth").hide(800);
      });
-    $("#addcourse").click(function(){
+    $(".tickets").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").show(800);
         $("#fourth").hide(800);
-        $("#fifth").hide(800);
-    });
-    $(".tickets").click(function(){
-        $("#first").hide(800);
-        $("#second").hide(800);
-        $("#third").hide(800);
-        $("#fourth").show(800);
-        $("#fifth").hide(800);
     });
     $("#trustlist").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").hide(800);
-        $("#fourth").hide(800);
-        $("#fifth").show(800);
+        $("#fourth").show(800);
     });
 });
 </script>
