@@ -29,6 +29,12 @@ if (preg_match('#(DROP|INSERT|UPDATE|TABLE|DELETE|;)#i',$problem))
 }
 //End SQL injection prevention
 
+if(!isset($_POST['number']) || !isset($_POST['phone']) || !isset($_POST['problem']))
+{
+    header("Location: ./problem.php");
+    exit();
+}
+
 if($usercaptcha != $true)
 {
   $_SESSION['error']='captcha';
