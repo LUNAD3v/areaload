@@ -76,7 +76,7 @@ $count = $counts->fetchColumn();
             if($count == 0) 
             {echo "background:rgb(0,176,240);";}
             else
-            {echo "background:rgba(247,0,0,0.7);";}
+            {echo "background:rgba(16,179,74,0.7);";}
             ?>
         }
     </style>
