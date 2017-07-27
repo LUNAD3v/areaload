@@ -44,7 +44,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+<?php
+foreach ($coursenamearray as $realcoursename) {
+    $coursename = $realcoursename[0];
+    echo "<title>" . $coursename ."作业上传</title>";
+}
+ ?>
     <title>作业上传</title>
 
     <!-- Font Awesome -->
@@ -75,9 +80,7 @@
 
 		<h2>
       <b><?php
-    foreach ($coursenamearray as $realcoursename) {
-      echo $realcoursename[0];
-    }
+      echo $coursename;
     ?></b>
     上传要求</h2>
     <pre><?php
