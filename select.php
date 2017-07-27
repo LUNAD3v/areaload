@@ -1,8 +1,4 @@
 <?php
-  $number1 = rand(0,30);
-  $number2 = rand(0,10);
-  $result = $number1 + $number2;
-
 //If no post data from index(direct access to select.php), redirect to index.php
   if(!$_POST['courseid'] || !$_POST['coursecategoryid'])
   {
@@ -99,15 +95,16 @@ foreach ($coursenamearray as $realcoursename) {
 
           <input type="text" name="number" class="form-control" placeholder="学号" required autofocus>
           <input type="text" name="name" class="form-control" placeholder="姓名" required>
-          <b>请算出答案：</b><input type="text" name="captcha" placeholder="<?php echo $number1?>+ <?php echo $number2?> = ?" required>
+          <img id="captcha" src="/captcha/securimage_show.php" alt="CAPTCHA Image" />
+          <a href="#" onclick="document.getElementById('captcha').src = '/captcha/securimage_show.php?' + Math.random(); return false">看不清，换一张</a>
+          <input type="text" name="captcha" size="10" maxlength="6" placeholder="请输入验证码" required />
           文件名<input type="text" id="na"  placeholder="当前未选择文件...">
           <label class="btn btn-primary" for="fileSelect" >
                 选择文件&hellip;
             </label><input type="file" id="fileSelect" name="userfile" style="visibility:hidden;" onchange="cli()">
             <input type="hidden" name="courseid" value="<?php echo $courseid?>"></input>
             <input type="hidden" name="coursecategoryid" value="<?php echo $coursecategoryid?>"></input>
-            <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
-            <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
+
             <button class="btn btn-lg btn-danger btn-block" input type="submit">上传</button>
 
         </div><!--<div class="col-lg-6 col-sm-6 col-xs-12">-->

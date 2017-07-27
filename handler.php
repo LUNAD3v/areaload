@@ -1,6 +1,15 @@
 <?php
 session_start();
 //Variables
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/captcha/securimage.php';
+$securimage = new Securimage();
+if ($securimage->check($_POST['captcha']) == false) {
+    $_SESSION['error']='captcha';
+    header("Location: ./error.php");
+    exit();
+}
+
 $stunumber = $_POST["number"];
 $stunumber = substr($stunumber,0,12);//Overflow prevention
 $stunumber = strip_tags($stunumber);
@@ -61,20 +70,6 @@ foreach ($uploaders as $test_key) {
   }
 }
 //End Duplication Prevention
-
-//Student validation success, now is the captcha section
-$usercaptcha=$_POST["captcha"];
-$num1=$_POST["num1"];
-$num2=$_POST["num2"];
-$true=$num1+$num2;
-if($usercaptcha != $true)
-{
-    $_SESSION['error']= 'captcha';
-    header("Location: ./error.php");
-    exit();
-    $accept= 0;
-}
-//End captcha section
 
 //If anything failed, return to upload page
 if($accept != 1)

@@ -1,8 +1,5 @@
 <?php
   session_start();
-  $number1 = rand(0,30);
-  $number2 = rand(0,10);
-  $result = $number1 + $number2;
  ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -49,9 +46,9 @@
                 </div><!-- col-md-6 col-xs-6-->
               </div><!--row -->
               <textarea input type="text" class="form-control" rows="5" name="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
-              <b>请算出答案：</b><input type="text" name="captcha" placeholder="<?php echo $number1?>+ <?php echo $number2?> = ?" required>
-              <input type="hidden" name="num1" value="<?php echo $number1?>"></input>
-              <input type="hidden" name="num2" value="<?php echo $number2?>"></input>
+              <img id="captcha" src="/captcha/securimage_show.php" alt="CAPTCHA Image" />
+              <a href="#" onclick="document.getElementById('captcha').src = '/captcha/securimage_show.php?' + Math.random(); return false">看不清，换一张</a>
+              <input type="text" name="captcha" size="10" maxlength="6" placeholder="请输入验证码" required />
               <button class="btn btn-lg btn-danger btn-block" input type="submit">提交申请</button>
         </form>
         </div>
