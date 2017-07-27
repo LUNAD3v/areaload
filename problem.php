@@ -46,8 +46,8 @@
                 </div><!-- col-md-6 col-xs-6-->
               </div><!--row -->
               <textarea input type="text" class="form-control" rows="5" name="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
-              <img id="captcha" src="/captcha/securimage_show.php" alt="CAPTCHA Image" />
-              <a href="#" onclick="document.getElementById('captcha').src = '/captcha/securimage_show.php?' + Math.random(); return false">看不清，换一张</a>
+              <img id="captcha" src="./captcha/securimage_show.php" alt="CAPTCHA Image" />
+              <a href="#" onclick="document.getElementById('captcha').src = './captcha/securimage_show.php?' + Math.random(); return false">看不清，换一张</a>
               <input type="text" name="captcha" size="10" maxlength="6" placeholder="请输入验证码" required />
               <button class="btn btn-lg btn-danger btn-block" input type="submit">提交申请</button>
         </form>
