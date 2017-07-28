@@ -26,7 +26,7 @@
                 {
                     echo "<li class=\"active\"><a href=\"./problem.php\">申请重新上传</a></li>";
                 }
-                elseif (basename($_SERVER['PHP_SELF']) == 'request.php' || basename($_SERVER['PHP_SELF']) == 'admin.php')
+                elseif (basename($_SERVER['PHP_SELF']) == 'request.php' || basename($_SERVER['PHP_SELF']) == 'admin.php' || basename($_SERVER['PHP_SELF']) == 'edit.php')
                 {
                     //Display Nothing
                 }
