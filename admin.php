@@ -143,7 +143,7 @@ $count = $counts->fetchColumn();
                         <input type="text" name="addcategoryid" class="form-control" placeholder="分类ID（例：frontend）" required>
                         <textarea input type="text" class="form-control" rows="2" name="addcourseinfo" placeholder="课程介绍" required></textarea>
                         <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
-                        <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
+                        <button class="btn btn-lg btn-primary btn-block" input type="submit">添加</button>
                     </form>
                     </div>
                 </div>
