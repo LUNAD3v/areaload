@@ -35,21 +35,21 @@ $count = $counts->fetchColumn();
     <link href="./css/mdb.min.css" rel="stylesheet">
     <style type="text/css">
         .leftside>li {
-            background: rgba(84,215,149,0.5);
+            background: rgba(22,117,199,0.5);
             height: 50px;
             width: 100%;
             line-height: 50px;
-            border-bottom:0.5px solid rgba(84,215,149,0.8);
+            border-bottom:0.5px solid rgba(22,117,199,0.8);
 
         }
         .leftside>li:hover {
-            background: rgba(84,215,149,0.8);
+            background: rgba(22,117,199,0.8);
         }
         #second,#third,#fourth {
             display: none;
         }
         .head{
-            background: rgb(84,215,149);
+            background: rgb(22,117,199);
             height: 50px;
             width: 100%;
             line-height: 50px;
@@ -67,7 +67,7 @@ $count = $counts->fetchColumn();
         }
         .glyphicon {
             float: right;
-            color: green;
+            color: rgb(22,117,199);
             line-height: 50px;
         }
         .badge {
@@ -144,7 +144,7 @@ $count = $counts->fetchColumn();
                         <input type="text" name="addcategoryid" class="form-control" placeholder="分类ID（例：frontend）" required>
                         <textarea input type="text" class="form-control" rows="2" name="addcourseinfo" placeholder="课程介绍" required></textarea>
                         <textarea input type="text" class="form-control" rows="5" name="addcoursedemand" placeholder="课程要求" required></textarea>
-                        <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
+                        <button class="btn btn-lg btn-primary btn-block" input type="submit">添加</button>
                     </form>
                     </div>
                 </div>
