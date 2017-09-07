@@ -50,11 +50,12 @@ upload_max_filesize = 1000M
 
 # 收作业方式
 
-在我们完成自动化收作业功能前，暂时只能使用crontab生成一个定时任务，用于方便收作业，BASH实现如下：
+<del>在我们完成自动化收作业功能前，暂时只能使用crontab生成一个定时任务，用于方便收作业，BASH实现如下：
 ```
 #!/bin/bash
 zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
-```
+```</del>
+直接使用后台的“收作业”按钮即可！
 
 # TODO
 
@@ -67,7 +68,7 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 - [x] 后台界面添加收作业功能
 - [x] request页面防注入
 - [x] 解决不同学号上传同名文件覆盖问题
-- [ ] 改善收作业功能
+- [x] 改善收作业功能
 - [ ] 修复修改课程部分无法提交修改的Bug
 
 # Author

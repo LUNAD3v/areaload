@@ -29,6 +29,51 @@ function deleteDirectory($dir) {
     return rmdir($dir);
 }
 
+function Zip($source, $destination)
+{
+    if (!extension_loaded('zip') || !file_exists($source)) {
+        return false;
+    }
+
+    $zip = new ZipArchive();
+    if (!$zip->open($destination, ZIPARCHIVE::CREATE)) {
+        return false;
+    }
+
+    $source = str_replace('\\', '/', realpath($source));
+
+    if (is_dir($source) === true)
+    {
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+
+        foreach ($files as $file)
+        {
+            $file = str_replace('\\', '/', $file);
+
+            // Ignore "." and ".." folders
+            if( in_array(substr($file, strrpos($file, '/')+1), array('.', '..')) )
+                continue;
+
+            $file = realpath($file);
+
+            if (is_dir($file) === true)
+            {
+                $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+            }
+            else if (is_file($file) === true)
+            {
+                $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+            }
+        }
+    }
+    else if (is_file($source) === true)
+    {
+        $zip->addFromString(basename($source), file_get_contents($source));
+    }
+
+    return $zip->close();
+}
+
 $connect = new PDO('sqlite:./db/db.sqlite');
 $addcoursename = $_POST['addcoursename'];
 $addcourseid = $_POST['addcourseid'];
@@ -119,16 +164,31 @@ $connect->exec("UPDATE 'course'
 
 //Begin Reset course
 $rstcourseid = $_POST['rstcourseid'];
-$rstcoursecategoryid = $_POST['rstcoursecategoryid'];
+$rstcategoryid = $_POST['rstcategoryid'];
 if($rstcourseid)
 {
-$rstcoursedir = "./upload/" . $rstcoursecategoryid . "/" . $rstcourseid;
+$rstcoursedir = "./upload/" . $rstcategoryid . "/" . $rstcourseid;
 deleteDirectory($rstcoursedir);//Purge files
 mkdir($rstcoursedir);
 $connect->exec("DELETE FROM 'uploaded'
 				WHERE course='$rstcourseid';");//Purge DB
 }
 
-header("Location: ./admin.php");
-exit();
+//Begin Download course
+$dlcourseid = $_POST['dlcourseid'];
+$dlcategoryid = $_POST['dlcategoryid'];
+if($dlcourseid)
+{
+	$zipurl = "./upload/" . $dlcategoryid . "/" . $dlcourseid;
+	Zip($zipurl,"./upload/" . $dlcourseid . '.zip');
+	$dlurl = "./upload/" . $dlcourseid . '.zip';
+
+	header("Location: $dlurl");
+}
+
+if(!$dlcourseid)
+{
+	header("Location: ./admin.php");
+	exit();
+}
  ?>

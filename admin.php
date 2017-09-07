@@ -73,7 +73,7 @@ $count = $counts->fetchColumn();
         .badge {
             border-radius:200px;
             <?php
-            if($count == 0) 
+            if($count == 0)
             {echo "background:rgb(0,176,240);";}
             else
             {echo "background:rgba(16,179,74,0.7);";}
@@ -113,7 +113,7 @@ $count = $counts->fetchColumn();
                           echo "<b>" . $eachcoursename . "</b>" . " | " . $eachcourseid . " | " . $eachcoursecategory . " | " . "$eachcoursecategoryid";
                           echo "<form action=\"course.php\" method=\"post\">";
                           echo "<ul><li><input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
-                          echo "<input type=\"hidden\" name=\"rstcoursecategoryid\" value=\"$eachcoursecategoryid\"></input>";
+                          echo "<input type=\"hidden\" name=\"rstcategoryid\" value=\"$eachcoursecategoryid\"></input>";
                           echo "<button class=\"bu\" input type=\"submit\">重置</button></li>";
                           echo "</form>";
                           echo "<li><form action=\"edit.php\" method=\"post\">";
@@ -125,6 +125,7 @@ $count = $counts->fetchColumn();
                           echo "<button class=\"bu\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
                           echo "</form></li>";
                           echo "<li><form action=\"course.php\" method=\"post\">";
+						  echo "<input type=\"hidden\" name=\"dlcategoryid\" value=\"$eachcoursecategoryid\"></input>";
                           echo "<input type=\"hidden\" name=\"dlcourseid\" value=\"$eachcourseid\"></input>";
                           echo "<button class=\"bu\" input type=\"submit\">收作业</button>";
                           echo "</form></li></ul>";
