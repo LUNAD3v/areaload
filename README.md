@@ -54,7 +54,8 @@ upload_max_filesize = 1000M
 ```
 #!/bin/bash
 zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
-```</del>
+```
+</del>
 直接使用后台的“收作业”按钮即可！
 
 # TODO
