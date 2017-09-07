@@ -11,8 +11,6 @@ $connect = new PDO('sqlite:./db/db.sqlite');
 $array = $connect->query("SELECT * FROM course;");
 $tickets = $connect->query("SELECT * FROM problem");
 $trustlists = $connect->query("SELECT * FROM trustlist");
-$counts = $connect->query("SELECT COUNT(*) FROM problem;");
-$count = $counts->fetchColumn();
 ?>
 <!DOCTYPE html>
 <html lang="zh">
@@ -72,12 +70,8 @@ $count = $counts->fetchColumn();
         }
         .badge {
             border-radius:200px;
-            <?php
-            if($count == 0)
-            {echo "background:rgb(0,176,240);";}
-            else
-            {echo "background:rgba(16,179,74,0.7);";}
-            ?>
+            background:rgb(0,176,240);
+
         }
     </style>
 </head>
