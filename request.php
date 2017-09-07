@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/captcha/securimage.php';
+include_once './captcha/securimage.php';
 $securimage = new Securimage();
 if ($securimage->check($_POST['captcha']) == false) {
     $_SESSION['error']='captcha';
