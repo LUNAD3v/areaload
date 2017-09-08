@@ -45,7 +45,7 @@
           <div class="panel-body">
           <form action="course.php" method="post">
           <input type="text" name="editcoursename" class="form-control" value="<?php echo $name?>" placeholder="课程名称（例：Web技术基础）" required>
-          <input type="text" name="editcourseid" class="form-control" value="<?php echo $id?>" placeholder="课程ID（例：web）"  disabled>
+          <input type="text" name="editcourseid" class="form-control" value="<?php echo $id?>" placeholder="课程ID（例：web）" >
           <textarea input type="text" class="form-control" rows="2" name="editcourseinfo" placeholder="课程介绍" required><?php echo $info?></textarea>
           <textarea input type="text" class="form-control" rows="5" name="editcoursedemand" placeholder="课程要求" required><?php echo $demand?></textarea>
           <button class="btn btn-lg btn-success btn-block" input type="submit">修改</button>

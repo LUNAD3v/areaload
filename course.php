@@ -154,7 +154,7 @@ $connect->exec("DELETE FROM 'problem'
 //End DEL ticket
 
 //Begin EDIT course
-if($editcourseid && $editecoursename && $editecourseinfo && $editcoursedemand)
+if($editcourseid && $editcoursename && $editcourseinfo && $editcoursedemand)
 {
 $connect->exec("UPDATE 'course'
 				SET name='$editcoursename',info='$editcourseinfo',demand='$editcoursedemand'
