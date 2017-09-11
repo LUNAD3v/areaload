@@ -181,7 +181,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
                     <form action="course.php" method="post">
                     <input type="text" name="delticket" class="form-control" placeholder="学号" required>
-                    <button class="btn btn-lg btn-danger btn-block" input type="submit">删除</button>
+                    <button class="btn btn-lg btn-danger btn-block" input type="submit">删除对应学号学生所上传的文件</button>
                     </form>
 
                     </div>

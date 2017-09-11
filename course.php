@@ -90,8 +90,7 @@ $editcourseinfo = $_POST['editcourseinfo'];
 $editcoursedemand = $_POST['editcoursedemand'];
 
 //Begin ADD trustlist
-$addtrustlist = strip_tags($_POST['addtrustlist']);
-$addtrustlist = substr($addtrustlist,12);//Overflow prevention
+$addtrustlist = $_POST['addtrustlist'];
 if($addtrustlist)
 {
 $connect->exec("INSERT INTO 'trustlist'
@@ -149,6 +148,8 @@ $delticket = $_POST['delticket'];
 if($delticket)
 {
 $connect->exec("DELETE FROM 'problem'
+				WHERE number='$delticket';");
+$connect->exec("DELETE FROM 'uploaded'
 				WHERE number='$delticket';");
 }
 //End DEL ticket
