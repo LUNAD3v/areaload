@@ -9,26 +9,42 @@
 
 * 限制上传学生的学号范围
 * 限制了上传文件的后缀名（7z,rar,zip）
-* ~~通过随机函数生成一个简单的数学问题防止**最基本**的机器自动提交~~
 * 使用[Securimage](https://www.phpcaptcha.org/)提供的图形验证码防止脚本攻击
-* 文件上传后即锁定，防止出现同学号不同文件名重复上传覆盖掉其他学生的作业
+* 文件上传后即重命名，防止出现同学号不同文件名重复上传覆盖掉其他学生的作业
 * 上传文件大小限制为1Gib
 * 后端管理界面可动态地添加和删除课程和分类
+* 记录上传学生IP，用于后期统计
+
+# 部署情况
+
+目前我们仅仅在校内进行了小规模的试验，取得了良好的反馈，同时我们十分感谢以下课程的老师对我们平台的信任和支持！
+
+### 重庆交通大学
+
+* Web技术基础结业报告
+* 大数据开发语言课程实验报告
+* 面向对象程序设计期末实验操作考试
+
+如果你也在使用我们的平台进行作业提交，欢迎来告诉我们哟，我们会在这个页面予以公示～
 
 # 如何部署
+
+## 0x00 Clone
 
 首先Clone这个Repo
 ```
 git clone https://github.com/LUNAD3v/areaload.git
 ```
 
+## 0x01 Configure Nginx && PHP
+
 我们喜欢Nginx，如果你用的是Nginx，那么在Nginx的全局（一般为/etc/nginx/nginx.conf）配置中，添加如下行
 ```
 client_max_body_size 1000m;
 ```
-PHP方面需要安装PDO和GD库。
+PHP方面需要安装PDO,GD和sqlite3相关运行库。
 
-由于使用了文件型数据库`SQLite`，为了防止数据库和学生上传的作业被通过HTTP的方式GET下来，记得在Nginx的Server Block中做一些配置。
+由于Areaload追求的是轻量级，快速部署，我们使用了文件型数据库`SQLite`，为了防止数据库和学生上传的作业被通过HTTP的方式GET下来，记得在Nginx的Server Block中做一些配置。
 ```
 location /db{
     return 403;
@@ -44,21 +60,32 @@ location /upload{
 upload_max_filesize = 1000M
 ```
 
-登录后台`login.php`，默认用户名`nginx`密码`apache`，添加可以上传的学生列表。
+## 0x02 Configure Areaload
+
+修改login.php，修改33，34行的登录信息（默认用户名为`nginx`，密码为`apache`）
+```
+if ($_POST['username'] == 'nginx' &&
+   $_POST['passwd'] == 'apache')
+```
+在handler.php中加入可以上传的文件类型（默认只允许上传7z,rar,zip三种后缀的文件）
+```
+$FileType == "7z"
+|| $FileType == "rar"
+|| $FileType == "zip"
+```
+登录后台`login.php`，添加可以上传的学生列表。
 
 部署工作到此为止。
 
 # 收作业方式
 
-<del>在我们完成自动化收作业功能前，暂时只能使用crontab生成一个定时任务，用于方便收作业，BASH实现如下：
-```
-#!/bin/bash
-zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
-```
-</del>
 直接使用后台的“收作业”按钮即可！
 
+收完作业后点一下“重置”，Areaload即可删除所有学生的上传数据，并为下一次上传作好准备。
+
 # TODO
+
+这是一个开源项目，如果您有什么建议可以在issue中提出，或者可以直接参与我们的开发！
 
 - [x] 使用图形验证码防止自动提交脚本
 - [ ] 服务端的文件扫描和正确性测试
@@ -71,16 +98,20 @@ zip -r /var/www/areaload/homework.zip /var/www/areaload/upload
 - [x] 解决不同学号上传同名文件覆盖问题
 - [x] 改善收作业功能
 - [x] 修复修改课程部分无法提交修改的Bug
+- [ ] 在管理后台修改文件类型限制和登陆密码
+- [ ] 页面美化
+- [ ] 代码健壮性审计
+- [ ] 更好的Ticket处理机制
 
-# Author
+# Authors
 
 Architect and major PHP programming:
 [@n0vad3v](https://github.com/n0vad3v)
 
-JavaScript and uploaded.php table design:
+Major JavaScript，uploaded.php table design and UI design:
 [@allenliu](https://github.com/allenliu123)
 
-SQL injection prevention and Student number validation design:
+SQL injection prevention and Student number validation function design:
 [@jazoma](https://github.com/jazoma)
 
 # License
