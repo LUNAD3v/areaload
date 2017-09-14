@@ -158,12 +158,15 @@ $connect->exec("INSERT INTO 'course'
 
 //Begin DEL course
 $delcourseid = strip_tags($_POST['delcourseid']);
+$delcoursecategory = strip_tags($_POST['delcoursecategory']);
 if($delcourseid)
 {
-$delcoursedir = "./upload/" . $delcoursecategory . $delcourseid;
+$delcoursedir = "./upload/" . $delcoursecategory . "/" . $delcourseid;
 deleteDirectory($delcoursedir);
 $connect->exec("DELETE FROM 'course'
 				WHERE id='$delcourseid';");
+$connect->exec("DELETE FROM 'uploaded'
+				WHERE course='$delcourseid';");//Purge DB
 }
 //End DEL course
 

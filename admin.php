@@ -116,6 +116,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                           echo "</form>";
                           echo "<li><form action=\"course.php\" method=\"post\">";
                           echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
+                          echo "<input type=\"hidden\" name=\"delcoursecategory\" value=\"$eachcoursecategoryid\"></input>";
                           echo "<button class=\"bu\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
                           echo "</form></li>";
                           echo "<li><form action=\"course.php\" method=\"post\">";
