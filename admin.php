@@ -182,7 +182,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
                     <form action="course.php" method="post">
                     <input type="text" name="delticket" class="form-control" placeholder="学号" required>
-                    <button class="btn btn-lg btn-danger btn-block" input type="submit">删除对应学号学生所上传的文件</button>
+                    <button class="btn btn-lg btn-danger btn-block" input type="submit">删除对应学号学生的上传数据</button>
                     </form>
 
                     </div>
@@ -203,7 +203,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         <h3>添加信任学号（段）</h3>
                         <p>通配部分使用**代替，如允许所有16级信息学院计算机类的学生上传，则填写：“63160704****”</p>
                         <form action="course.php" method="post">
-                            <input type="text" name="addtrustlist" class="form-control" placeholder="学号或学号段（例：6316070404**）" required>
+                            <input type="text" name="addtrustlist" class="form-control" placeholder="学号或学号段" required>
                             <button class="btn btn-lg btn-success btn-block" input type="submit">添加</button>
                         </form>
                         <hr>
