@@ -226,7 +226,7 @@ if($dlcourseid)
 	$dlurl = "./upload/" . $dlcourseid . '.zip';
 	$randfilename = random_str('alphanum',10);
 	$tmpdlurl = "./tmp/" . $randfilename . '.zip';
-	copy($dlurl,$tmpdlurl);
+	rename($dlurl,$tmpdlurl);
 
 	header("Location: $tmpdlurl");
 }
