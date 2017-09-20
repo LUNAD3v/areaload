@@ -207,9 +207,7 @@ $rstcategoryid = $_POST['rstcategoryid'];
 if($rstcourseid)
 {
 $rstcoursedir = "./upload/" . $rstcategoryid . "/" . $rstcourseid;
-$rstcoursearchive = "./upload/" . $rstcourseid . '.zip';
 deleteDirectory($rstcoursedir);//Purge files
-unlink($rstcoursearchive);
 mkdir($rstcoursedir);
 $connect->exec("DELETE FROM 'uploaded'
 				WHERE course='$rstcourseid';");//Purge DB
