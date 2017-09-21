@@ -76,7 +76,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
     </style>
 </head>
 <body>
-    <img src="./img/admin.jpeg" style="position: fixed;width: 100%; opacity: 0.2; z-index: -100" alt="">
+    <img src="./img/bg.jpg" style="position: fixed;width: 100%; opacity: 0.4; z-index: -100" alt="">
     <?php include('./partial/nav.php') ?>
     <div class="container">
         <div class="col-md-3">
