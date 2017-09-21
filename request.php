@@ -78,7 +78,7 @@ if(!isset($_POST['number']) || !isset($_POST['phone']) || !isset($_POST['problem
             <h1>提交成功！</h1>
         </div><!--/ header -->
         <div class="jumbotron">
-          <p>好的，我们确认后会通过你再次上传的。</p>
+          <p>好的，我们确认后会通知你再次上传的。</p>
         </div>
           </div>
         </div>
