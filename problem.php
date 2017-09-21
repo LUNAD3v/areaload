@@ -31,11 +31,10 @@
 
     <div class="container">
 
-
+<div class="jumbotron" style="opacity: 0.8">
       <div class="page-header">
           <h1>申请重新上传</h1>
       </div><!--/ header -->
-
         <form action="request.php" method="post">
               <div class="row">
                 <div class="col-md-6 col-xs-6">
@@ -46,12 +45,19 @@
                 </div><!-- col-md-6 col-xs-6-->
               </div><!--row -->
               <textarea input type="text" class="form-control" rows="5" name="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
+              <div class="row">
+              <div class="col-md-6 col-xs-6">
               <img id="captcha" src="./captcha/securimage_show.php" alt="CAPTCHA Image" />
               <a href="#" onclick="document.getElementById('captcha').src = './captcha/securimage_show.php?' + Math.random(); return false">看不清，换一张</a>
               <input type="text" name="captcha" size="10" maxlength="6" placeholder="请输入验证码" required />
+              </div><!-- col-md-6 col-xs-6-->
+              <div class="col-md-6 col-xs-6">
               <button class="btn btn-lg btn-danger btn-block" input type="submit">提交申请</button>
+              </div><!-- col-md-6 col-xs-6-->
+              </div><!--row -->
         </form>
         </div>
+</div>
       </div>
       <?php include('./partial/footer.php') ?>
     <!-- SCRIPTS -->
