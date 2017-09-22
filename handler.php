@@ -30,7 +30,7 @@ if (preg_match('#(DROP|INSERT|UPDATE|TABLE|;)#i',$stuname))
 
 //Begin Database connection
 $upconnect = new PDO('sqlite:./db/db.sqlite');
-$uploaders = $upconnect->query("SELECT * FROM uploaded");
+$uploaders = $upconnect->query("SELECT * FROM uploaded WHERE 'course' = '$courseid'");
 $trustlists = $upconnect->query("SELECT * FROM trustlist");
 //End Database connection
 $accept = 0;
