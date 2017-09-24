@@ -9,7 +9,8 @@ if ($securimage->check($_POST['captcha']) == false) {
     exit();
 }
 
-$stunumber = $_POST["number"];
+$stunumber = $_POST['number'];
+$courseid = $_POST['courseid'];
 $stunumber = substr($stunumber,0,12);
 $stunumber = strip_tags($stunumber);
 $phone = $_POST['phone'];
@@ -41,7 +42,7 @@ if(!isset($_POST['number']) || !isset($_POST['phone']) || !isset($_POST['problem
 
   $db = new SQLite3('./db/db.sqlite');
 
-  $db->exec("INSERT INTO 'problem' ('number','content','phone') VALUES ('$stunumber', '$problem', '$phone');");
+  $db->exec("INSERT INTO 'problem' ('number','content','phone','courseid') VALUES ('$stunumber', '$problem', '$phone','$courseid');");
   ?>
 
   <!DOCTYPE html>

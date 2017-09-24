@@ -183,12 +183,13 @@ $connect->exec("DELETE FROM 'course'
 
 //Begin DEL ticket
 $delticket = $_POST['delticket'];
+$delticketcourseid = $_POST['delticketcourseid'];
 if($delticket)
 {
 $connect->exec("DELETE FROM 'problem'
-				WHERE number='$delticket';");
+				WHERE number= '$delticket' AND courseid = '$delticketcourseid';");
 $connect->exec("DELETE FROM 'uploaded'
-				WHERE number='$delticket';");
+				WHERE number = '$delticket' AND course = '$delticketcourseid';");
 }
 //End DEL ticket
 

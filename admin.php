@@ -173,15 +173,23 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                     echo "<li class=\"list-group-item\">";
                     echo "<b>".$ticket['number']."</b>" . " | ";
                     echo $ticket['content'];
-                                    echo " | ";
-                                    echo $ticket['phone'];
-                                    echo "</li>";
+                    echo " | ";
+                    echo $ticket['phone'];
+					echo " | ";
+					echo $ticket['courseid'];
+                    echo "</li>";
                         }
                     ?>
                     </ul>
 
                     <form action="course.php" method="post">
+					<div class="row">
+						<div class="col-md-6 col-xs-12">
                     <input type="text" name="delticket" class="form-control" placeholder="学号" required>
+						</div>
+						<div class="col-md-6 col-xs-12">
+					<input type="text" name="delticketcourseid" class="form-control" placeholder="课程ID" required>
+						</div>
                     <button class="btn btn-lg btn-danger btn-block" input type="submit">删除对应学号学生的上传数据</button>
                     </form>
 
