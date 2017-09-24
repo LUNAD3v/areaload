@@ -28,7 +28,7 @@
 </head>
 
 <body>
-<img src="./img/bg.jpg" style="position: fixed;width: 100%; opacity: 0.8; z-index: -100" alt="">
+<img src="./img/index.jpg" style="position: fixed;width: 100%; opacity: 0.8; z-index: -100" alt="">
 
 <?php include('./partial/nav.php') ?>
 
@@ -67,7 +67,7 @@
         echo "<form action=\"select.php\" method=\"post\">";
         echo "<input type=\"hidden\" name=\"coursecategoryid\" value=\"" . $row['categoryid'] ."\"" . "></input>";
         echo "<input type=\"hidden\" name=\"courseid\" value=\"" . $row['id'] ."\"" . "></input>";
-        echo "<button class=\"btn btn-lg btn-danger btn-block\" input type=\"submit\">提交作业</button>";
+        echo "<button class=\"btn btn-lg btn-danger btn-block\" input type=\"submit\">提交文件</button>";
         echo "</form>";
 
         echo "</div><!-- col -->";
