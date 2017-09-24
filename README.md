@@ -29,59 +29,7 @@
 
 # 如何部署
 
-## 0x00 Clone
-
-首先Clone这个Repo
-```
-git clone https://github.com/LUNAD3v/areaload.git
-```
-
-## 0x01 Configure Nginx && PHP
-
-我们喜欢Nginx，如果你用的是Nginx，那么在Nginx的全局（一般为/etc/nginx/nginx.conf）配置中，添加如下行
-```
-client_max_body_size 1000m;
-```
-PHP方面需要安装PDO,GD和sqlite3相关运行库。
-
-由于Areaload追求的是轻量级，快速部署，我们使用了文件型数据库`SQLite`，为了防止数据库和学生上传的作业被通过HTTP的方式GET下来，记得在Nginx的Server Block中做一些配置。
-```
-location /db{
-    return 403;
-}
-
-location /upload{
-    return 403;
-}
-```
-
-在/etc/php.ini中修改如下行：
-```
-upload_max_filesize = 1000M
-```
-
-## 0x02 Configure Areaload
-
-修改login.php，修改33，34行的登录信息（默认用户名为`nginx`，密码为`apache`）
-```
-if ($_POST['username'] == 'nginx' &&
-   $_POST['passwd'] == 'apache')
-```
-在handler.php中加入可以上传的文件类型（默认只允许上传7z,rar,zip三种后缀的文件）
-```
-$FileType == "7z"
-|| $FileType == "rar"
-|| $FileType == "zip"
-```
-登录后台`login.php`，添加可以上传的学生列表。
-
-部署工作到此为止。
-
-# 收作业方式
-
-直接使用后台的“收作业”按钮即可！
-
-收完作业后点一下“重置”，Areaload即可删除所有学生的上传数据，并为下一次上传作好准备。
+参照我们的[安装教程](https://github.com/LUNAD3v/areaload/wiki/Installation-Guide)
 
 # TODO
 
