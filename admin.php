@@ -195,6 +195,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
                     </div>
                 </div>
+			</div>
                 <div id="fourth">
                     <div class="head">&nbsp&nbsp信任学号（段）</div>
                     <div class="panel-body">

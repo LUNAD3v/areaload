@@ -29,7 +29,7 @@
 
 # 如何部署
 
-参照我们的[安装教程](https://github.com/LUNAD3v/areaload/wiki/Installation-Guide)
+参照我们的[安装教程](https://lunaluna.org/areaload.html)和[使用教程](https://lunaluna.org/areaload.html#usage)
 
 # TODO
 

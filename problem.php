@@ -38,9 +38,6 @@
         -ms-appearance:none;
         border-bottom: 0.5px solid rgba(200,200,200,0.8);
     }
-    select optgroup{
-        background: #B3A5B4;
-    }
     select option {
         padding: 2px;
         padding-left: 20px;
