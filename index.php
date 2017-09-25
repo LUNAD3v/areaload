@@ -45,34 +45,32 @@
 
 	<?php
     $titlearray = $connect->query("SELECT DISTINCT category,categoryid FROM course;");
-    foreach ($titlearray as $title)
-    {
+    foreach ($titlearray as $title) {
         echo "<h2>" . $title['category'] . "</h2>";
         $tmpcategoryid = $title['categoryid'];
         $coursearray = $connect->query("SELECT * FROM course WHERE categoryid = '$tmpcategoryid';");
 
-        foreach($coursearray as $row)
-        {
-        $color = array("success", "info", "warning", "danger");
-        $eachcolor = $color[mt_rand(0, count($color) - 1)];
-        echo "<div class=\"alert alert-" . $eachcolor ."\"" . "role=\"alert\">";
-        echo "<div class=\"row\">";
-        echo "<div class=\"col-sm-6 col-md-10\">";
+        foreach ($coursearray as $row) {
+            $color = array("success", "info", "warning", "danger");
+            $eachcolor = $color[mt_rand(0, count($color) - 1)];
+            echo "<div class=\"alert alert-" . $eachcolor ."\"" . "role=\"alert\">";
+            echo "<div class=\"row\">";
+            echo "<div class=\"col-sm-6 col-md-10\">";
 
-        echo "<h3>" . $row['name'] . "<h3>";
+            echo "<h3>" . $row['name'] . "<h3>";
 
-        echo "</div><!-- col -->";
-        echo "<div class=\"col-sm-6 col-md-2\">";
+            echo "</div><!-- col -->";
+            echo "<div class=\"col-sm-6 col-md-2\">";
 
-        echo "<form action=\"select.php\" method=\"post\">";
-        echo "<input type=\"hidden\" name=\"coursecategoryid\" value=\"" . $row['categoryid'] ."\"" . "></input>";
-        echo "<input type=\"hidden\" name=\"courseid\" value=\"" . $row['id'] ."\"" . "></input>";
-        echo "<button class=\"btn btn-lg btn-danger btn-block\" input type=\"submit\">提交文件</button>";
-        echo "</form>";
+            echo "<form action=\"select.php\" method=\"post\">";
+            echo "<input type=\"hidden\" name=\"coursecategoryid\" value=\"" . $row['categoryid'] ."\"" . "></input>";
+            echo "<input type=\"hidden\" name=\"courseid\" value=\"" . $row['id'] ."\"" . "></input>";
+            echo "<button class=\"btn btn-lg btn-danger btn-block\" input type=\"submit\">提交文件</button>";
+            echo "</form>";
 
-        echo "</div><!-- col -->";
-        echo "</div><!-- row -->";
-        echo "</div><!-- alert -->";
+            echo "</div><!-- col -->";
+            echo "</div><!-- row -->";
+            echo "</div><!-- alert -->";
         }
         echo "<hr>";
     }

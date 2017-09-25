@@ -29,26 +29,37 @@ session_start();
   <div class="container" >
 
 <?php
-          if ( !empty($_POST['username']) && !empty($_POST['passwd']) )
-               {
-               if ($_POST['username'] == 'nginx' &&
-                  $_POST['passwd'] == 'apache')
-                  {
+          if (!empty($_POST['username']) && !empty($_POST['passwd'])) {
+              $username = $_POST['username'];
+              $passwd = md5($_POST['passwd']);
+              if ($username = 'nginx' && $passwd = '64ca4409cb77ebb70d878309180f0d0a') {
                   $_SESSION['valid'] = true;
+                  $_SESSION['username'] = $_POST['username'];
                   header("Location:./admin.php");
                   exit();
-                }
               }
+          }
  ?>
+<div class="row">
+    <div class="col-md-4 col-xs-12">
 
+    </div>
+    <div class="col-md-4 col-xs-12">
         <div class="jumbotron" style="opacity: 0.8">
         <form action="login.php" method="post">
-          <h2 class="form-signin-heading h2-responsive wow fadeInLeft">欢迎登录AreaLoad</h2>
+          <h2 class="form-signin-heading h2-responsive wow fadeInLeft">登录AreaLoad</h2>
           <input type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
           <input type="password" name="passwd" class="form-control" placeholder="密码" required>
           <button class="btn btn-lg btn-primary btn-block" input type="submit">登录</button>
         </form>
         </div>
+    </div>
+    <div class="col-md-4 col-xs-12">
+
+    </div>
+
+</div>
+
 
 
   </div> <!-- /container -->

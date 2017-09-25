@@ -1,10 +1,9 @@
 <?php
 session_start();
 //Check for SESSION
-if(!$_SESSION['valid'])
-{
-	header("Location:./login.php");
-	exit();
+if (!$_SESSION['valid']) {
+    header("Location:./login.php");
+    exit();
 }
 
 $connect = new PDO('sqlite:./db/db.sqlite');
@@ -76,7 +75,6 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
     </style>
 </head>
 <body>
-    <img src="./img/bg.jpg" style="position: fixed;width: 100%; opacity: 0.4; z-index: -100" alt="">
     <?php include('./partial/nav.php') ?>
     <div class="container">
         <div class="col-md-3">
@@ -95,37 +93,45 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                     <ul class="list-group">
                     <?php
                     foreach ($array as $course) {
-                      $eachcoursename = $course['name'];
-                      $eachcourseid = $course['id'];
-                      $eachcoursecategory = $course['category'];
-                      $eachcoursecategoryid = $course['categoryid'];
-                      $counts = $connect->query("SELECT COUNT(*) FROM uploaded WHERE course = '$eachcourseid';");
-                      $count = $counts->fetchColumn();
-                      echo "<li class=\"list-group-item li\">";
-                      echo "<span class=\"badge\">". $count . "</span>";
+                        $eachcoursename = $course['name'];
+                        $eachcourseid = $course['id'];
+                        $eachcoursecategory = $course['category'];
+                        $eachcoursecategoryid = $course['categoryid'];
+                        $counts = $connect->query("SELECT COUNT(*) FROM uploaded WHERE course = '$eachcourseid';");
+                        $count = $counts->fetchColumn();
+                        echo "<li class=\"list-group-item li\">";
+                        echo "<span class=\"badge\">". $count . "</span>";
+                        echo $eachcoursecategory . " / " . "<b>" . $eachcoursename . "</b>";
 
-                          echo "<b>" . $eachcoursename . "</b>" . " | " . $eachcourseid . " | " . $eachcoursecategory . " | " . "$eachcoursecategoryid";
-                          echo "<form action=\"course.php\" method=\"post\">";
-                          echo "<ul><li><input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
-                          echo "<input type=\"hidden\" name=\"rstcategoryid\" value=\"$eachcoursecategoryid\"></input>";
-                          echo "<button class=\"bu\" input type=\"submit\">重置</button></li>";
-                          echo "</form>";
-                          echo "<li><form action=\"edit.php\" method=\"post\">";
-                          echo "<input type=\"hidden\" name=\"editcourseid\" value=\"$eachcourseid\"></input>";
-                          echo "<button class=\"bu\" input type=\"submit\">修改</button></li>";
-                          echo "</form>";
-                          echo "<li><form action=\"course.php\" method=\"post\">";
-                          echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
-                          echo "<input type=\"hidden\" name=\"delcoursecategory\" value=\"$eachcoursecategoryid\"></input>";
-                          echo "<button class=\"bu\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
-                          echo "</form></li>";
-                          echo "<li><form action=\"course.php\" method=\"post\">";
-						  echo "<input type=\"hidden\" name=\"dlcategoryid\" value=\"$eachcoursecategoryid\"></input>";
-                          echo "<input type=\"hidden\" name=\"dlcourseid\" value=\"$eachcourseid\"></input>";
-                          echo "<button class=\"bu\" input type=\"submit\">收作业</button>";
-                          echo "</form></li></ul>";
+                        echo "<form action=\"course.php\" method=\"post\">";
+                        echo "<ul><li><input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<input type=\"hidden\" name=\"rstcategoryid\" value=\"$eachcoursecategoryid\"></input>";
+                        echo "<button class=\"bu\" input type=\"submit\">重置</button>";
+                        echo "</form></li>";
 
-                      echo "</li>";
+                        echo "<li><form action=\"edit.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"editcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<button class=\"bu\" input type=\"submit\">修改</button>";
+                        echo "</form></li>";
+
+                        echo "<li><form action=\"info.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"courseid\" value=\"$eachcourseid\"></input>";
+                        echo "<button class=\"bu\" input type=\"submit\">详情</button>";
+                        echo "</form></li>";
+
+                        echo "<li><form action=\"course.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<input type=\"hidden\" name=\"delcoursecategory\" value=\"$eachcoursecategoryid\"></input>";
+                        echo "<button class=\"bu\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
+                        echo "</form></li>";
+
+                        echo "<li><form action=\"course.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"dlcategoryid\" value=\"$eachcoursecategoryid\"></input>";
+                        echo "<input type=\"hidden\" name=\"dlcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<button class=\"bu\" input type=\"submit\">收作业</button>";
+                        echo "</form></li></ul>";
+
+                        echo "</li>";
                     }
                       ?>
 
@@ -149,17 +155,17 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         <?php
                         $categoryarray = $connect->query("SELECT DISTINCT category,categoryid FROM course;");
                         foreach ($categoryarray as $category) {
-                          $eachcoursecategory = $category['category'];
-                          $eachcoursecategoryid = $category['categoryid'];
-                          echo "<li class=\"list-group-item li\">";
+                            $eachcoursecategory = $category['category'];
+                            $eachcoursecategoryid = $category['categoryid'];
+                            echo "<li class=\"list-group-item li\">";
 
-                                          echo "<b>" . $eachcoursecategory . "</b>" . " | " . "$eachcoursecategoryid";
-                                          echo "<form action=\"course.php\" method=\"post\">";
-                                          echo "<input type=\"hidden\" name=\"delcategoryid\" value=\"$eachcoursecategoryid\"></input>";
-                                          echo "<button class=\"bu\" input type=\"submit\">删除</button>";
-                                          echo "</form>";
+                            echo "<b>" . $eachcoursecategory . "</b>" . " | " . "$eachcoursecategoryid";
+                            echo "<form action=\"course.php\" method=\"post\">";
+                            echo "<input type=\"hidden\" name=\"delcategoryid\" value=\"$eachcoursecategoryid\"></input>";
+                            echo "<button class=\"bu\" input type=\"submit\">删除</button>";
+                            echo "</form>";
 
-                          echo "</li>";
+                            echo "</li>";
                         }
                         ?>
                     </div>
@@ -170,15 +176,15 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                     <ul class="list-group">
                     <?php
                     foreach ($tickets as $ticket) {
-                    echo "<li class=\"list-group-item\">";
-                    echo "<b>".$ticket['number']."</b>" . " | ";
-                    echo $ticket['content'];
-                    echo " | ";
-                    echo $ticket['phone'];
-					echo " | ";
-					echo $ticket['courseid'];
-                    echo "</li>";
-                        }
+                        echo "<li class=\"list-group-item\">";
+                        echo "<b>".$ticket['number']."</b>" . " | ";
+                        echo $ticket['content'];
+                        echo " | ";
+                        echo $ticket['phone'];
+                        echo " | ";
+                        echo $ticket['courseid'];
+                        echo "</li>";
+                    }
                     ?>
                     </ul>
 
@@ -190,6 +196,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 						<div class="col-md-6 col-xs-12">
 					<input type="text" name="delticketcourseid" class="form-control" placeholder="课程ID" required>
 						</div>
+					</div>
                     <button class="btn btn-lg btn-danger btn-block" input type="submit">删除对应学号学生的上传数据</button>
                     </form>
 

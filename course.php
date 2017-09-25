@@ -1,15 +1,15 @@
 <?php
 session_start();
-if(!$_SESSION['valid'])
-{
-	header("Location:./index.php");
-	exit();
+if (!$_SESSION['valid']) {
+    header("Location:./index.php");
+    exit();
 }
 // Make sure the script can handle large folders/files
 ini_set('max_execution_time', 600);
-ini_set('memory_limit','1024M');
+ini_set('memory_limit', '1024M');
 
-function deleteDirectory($dir) {
+function deleteDirectory($dir)
+{
     if (!file_exists($dir)) {
         return true;
     }
@@ -26,7 +26,6 @@ function deleteDirectory($dir) {
         if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
             return false;
         }
-
     }
 
     return rmdir($dir);
@@ -45,32 +44,26 @@ function Zip($source, $destination)
 
     $source = str_replace('\\', '/', realpath($source));
 
-    if (is_dir($source) === true)
-    {
+    if (is_dir($source) === true) {
         $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
 
-        foreach ($files as $file)
-        {
+        foreach ($files as $file) {
             $file = str_replace('\\', '/', $file);
 
             // Ignore "." and ".." folders
-            if( in_array(substr($file, strrpos($file, '/')+1), array('.', '..')) )
+            if (in_array(substr($file, strrpos($file, '/')+1), array('.', '..'))) {
                 continue;
+            }
 
             $file = realpath($file);
 
-            if (is_dir($file) === true)
-            {
+            if (is_dir($file) === true) {
                 $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-            }
-            else if (is_file($file) === true)
-            {
+            } elseif (is_file($file) === true) {
                 $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
             }
         }
-    }
-    else if (is_file($source) === true)
-    {
+    } elseif (is_file($source) === true) {
         $zip->addFromString(basename($source), file_get_contents($source));
     }
 
@@ -79,14 +72,13 @@ function Zip($source, $destination)
 
 function random_str($type = 'alphanum', $length = 8)
 {
-    switch($type)
-    {
-        case 'basic'    : return mt_rand();
+    switch ($type) {
+        case 'basic': return mt_rand();
             break;
-        case 'alpha'    :
-        case 'alphanum' :
-        case 'num'      :
-        case 'nozero'   :
+        case 'alpha':
+        case 'alphanum':
+        case 'num':
+        case 'nozero':
                 $seedings             = array();
                 $seedings['alpha']    = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 $seedings['alphanum'] = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -96,14 +88,13 @@ function random_str($type = 'alphanum', $length = 8)
                 $pool = $seedings[$type];
 
                 $str = '';
-                for ($i=0; $i < $length; $i++)
-                {
+                for ($i=0; $i < $length; $i++) {
                     $str .= substr($pool, mt_rand(0, strlen($pool) -1), 1);
                 }
                 return $str;
             break;
-        case 'unique'   :
-        case 'md5'      :
+        case 'unique':
+        case 'md5':
                     return md5(uniqid(mt_rand()));
             break;
     }
@@ -126,30 +117,27 @@ $editcoursedemand = $_POST['editcoursedemand'];
 
 //Begin ADD trustlist
 $addtrustlist = $_POST['addtrustlist'];
-if($addtrustlist)
-{
-$connect->exec("INSERT INTO 'trustlist'
+if ($addtrustlist) {
+    $connect->exec("INSERT INTO 'trustlist'
 				('number')
 				VALUES ('$addtrustlist');");
 }
 //End ADD trustlist
 //Begin DEL trustlist
 $deltrustlist = strip_tags($_POST['deltrustlist']);
-if($deltrustlist)
-{
-$connect->exec("DELETE FROM 'trustlist'
+if ($deltrustlist) {
+    $connect->exec("DELETE FROM 'trustlist'
 				WHERE number='$deltrustlist';");
 }
 //End DEL trustlist
 
 //Begin ADD course
-if($addcoursename && $addcourseid && $addcourseinfo && $addcoursedemand && $addcategory && $addcategoryid)
-{
-$addcategorydir = "./upload/" . $addcategoryid;
-mkdir($addcategorydir);
-$addcoursedir = "./upload/" . $addcategoryid . "/" . $addcourseid;
-mkdir($addcoursedir);
-$connect->exec("INSERT INTO 'course'
+if ($addcoursename && $addcourseid && $addcourseinfo && $addcoursedemand && $addcategory && $addcategoryid) {
+    $addcategorydir = "./upload/" . $addcategoryid;
+    mkdir($addcategorydir);
+    $addcoursedir = "./upload/" . $addcategoryid . "/" . $addcourseid;
+    mkdir($addcoursedir);
+    $connect->exec("INSERT INTO 'course'
 				('name','id','info','demand','category','categoryid')
 				VALUES
 				('$addcoursename','$addcourseid','$addcourseinfo','$addcoursedemand','$addcategory','$addcategoryid');");
@@ -159,24 +147,22 @@ $connect->exec("INSERT INTO 'course'
 //Begin DEL course
 $delcourseid = strip_tags($_POST['delcourseid']);
 $delcoursecategory = strip_tags($_POST['delcoursecategory']);
-if($delcourseid)
-{
-$delcoursedir = "./upload/" . $delcoursecategory . "/" . $delcourseid;
-deleteDirectory($delcoursedir);
-$connect->exec("DELETE FROM 'course'
+if ($delcourseid) {
+    $delcoursedir = "./upload/" . $delcoursecategory . "/" . $delcourseid;
+    deleteDirectory($delcoursedir);
+    $connect->exec("DELETE FROM 'course'
 				WHERE id='$delcourseid';");
-$connect->exec("DELETE FROM 'uploaded'
+    $connect->exec("DELETE FROM 'uploaded'
 				WHERE course='$delcourseid';");//Purge DB
 }
 //End DEL course
 
 //Begin DEL category
 $delcategoryid = strip_tags($_POST['delcategoryid']);
-if($delcategoryid)
-{
-$delcategorydir = "./upload/" . $delcategoryid ;
-deleteDirectory($delcategorydir);
-$connect->exec("DELETE FROM 'course'
+if ($delcategoryid) {
+    $delcategorydir = "./upload/" . $delcategoryid ;
+    deleteDirectory($delcategorydir);
+    $connect->exec("DELETE FROM 'course'
 				WHERE categoryid='$delcategoryid';");
 }
 //End DEL category
@@ -184,19 +170,17 @@ $connect->exec("DELETE FROM 'course'
 //Begin DEL ticket
 $delticket = $_POST['delticket'];
 $delticketcourseid = $_POST['delticketcourseid'];
-if($delticket)
-{
-$connect->exec("DELETE FROM 'problem'
+if ($delticket) {
+    $connect->exec("DELETE FROM 'problem'
 				WHERE number= '$delticket' AND courseid = '$delticketcourseid';");
-$connect->exec("DELETE FROM 'uploaded'
+    $connect->exec("DELETE FROM 'uploaded'
 				WHERE number = '$delticket' AND course = '$delticketcourseid';");
 }
 //End DEL ticket
 
 //Begin EDIT course
-if($editcourseid && $editcoursename && $editcourseinfo && $editcoursedemand)
-{
-$connect->exec("UPDATE 'course'
+if ($editcourseid && $editcoursename && $editcourseinfo && $editcoursedemand) {
+    $connect->exec("UPDATE 'course'
 				SET name='$editcoursename',info='$editcourseinfo',demand='$editcoursedemand'
 				WHERE id='$editcourseid';");
 }
@@ -205,12 +189,11 @@ $connect->exec("UPDATE 'course'
 //Begin Reset course
 $rstcourseid = $_POST['rstcourseid'];
 $rstcategoryid = $_POST['rstcategoryid'];
-if($rstcourseid)
-{
-$rstcoursedir = "./upload/" . $rstcategoryid . "/" . $rstcourseid;
-deleteDirectory($rstcoursedir);//Purge files
-mkdir($rstcoursedir);
-$connect->exec("DELETE FROM 'uploaded'
+if ($rstcourseid) {
+    $rstcoursedir = "./upload/" . $rstcategoryid . "/" . $rstcourseid;
+    deleteDirectory($rstcoursedir);//Purge files
+    mkdir($rstcoursedir);
+    $connect->exec("DELETE FROM 'uploaded'
 				WHERE course='$rstcourseid';");//Purge DB
 }
 //End Reset course
@@ -218,22 +201,19 @@ $connect->exec("DELETE FROM 'uploaded'
 //Begin Download course
 $dlcourseid = $_POST['dlcourseid'];
 $dlcategoryid = $_POST['dlcategoryid'];
-if($dlcourseid)
-{
-	$zipurl = "./upload/" . $dlcategoryid . "/" . $dlcourseid;
-	Zip($zipurl,"./upload/" . $dlcourseid . '.zip');
-	$dlurl = "./upload/" . $dlcourseid . '.zip';
-	$randfilename = random_str('alphanum',10);
-	$tmpdlurl = "./tmp/" . $randfilename . '.zip';
-	rename($dlurl,$tmpdlurl);
+if ($dlcourseid) {
+    $zipurl = "./upload/" . $dlcategoryid . "/" . $dlcourseid;
+    Zip($zipurl, "./upload/" . $dlcourseid . '.zip');
+    $dlurl = "./upload/" . $dlcourseid . '.zip';
+    $randfilename = random_str('alphanum', 10);
+    $tmpdlurl = "./tmp/" . $randfilename . '.zip';
+    rename($dlurl, $tmpdlurl);
 
-	header("Location: $tmpdlurl");
+    header("Location: $tmpdlurl");
 }
 //End Download course
 
-if(!$dlcourseid)
-{
-	header("Location: ./admin.php");
-	exit();
+if (!$dlcourseid) {
+    header("Location: ./admin.php");
+    exit();
 }
- ?>
