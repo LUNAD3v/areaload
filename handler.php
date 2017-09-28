@@ -140,7 +140,9 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
           echo "已经成功上传";
           echo "</p>";
           $realname = $stunumber . "-" . $filename;
-          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course') VALUES ('$stunumber','$stuip','$stuname','$realname','$courseid');");
+          date_default_timezone_set('Asia/Hong_Kong');
+          $time = date('Y-m-d H:i:s');
+          $upconnect->exec("INSERT INTO 'uploaded' ('number','ip','name','filename','course','time') VALUES ('$stunumber','$stuip','$stuname','$realname','$courseid','$time');");
 				} else {
 					echo "<p>";
 					echo "文件错误！";

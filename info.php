@@ -67,13 +67,13 @@ if(!$_SESSION['valid'])
     </div>
 
     <div class='jumbotron' style="opacity: 0.8">
-        <h2>学生上传情况</h2>
+        <h2>上传情况</h2>
         <table align='center'><tr align='center'>
-    <tr><th>学号</th><th>姓名</th><th>IP</th></tr>
+    <tr><th>学号</th><th>姓名</th><th>IP</th><th>上传日期</th></tr>
 <?php
 foreach($uploaders as $row)
 {
-        echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['ip']."</td></tr>";
+        echo "<tr><td>".$row['number']."</td><td>".$row['name']."</td><td>".$row['ip']."</td><td>".$row['time']."</td></tr>";
 }
         echo "</table>";
 ?>
