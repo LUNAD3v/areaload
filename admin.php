@@ -81,7 +81,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 <li id="categorymanage">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li class="tickets">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="trustlist">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
-                <li id="config">&nbsp&nbsp修改密码<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="pwd">&nbsp&nbsp修改密码<span class="glyphicon glyphicon-chevron-right"></span></li>
             </ul>
         </div>
         <div class="col-md-9">
@@ -201,7 +201,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
                     </div>
                 </div>
-			</div>
+
                 <div id="fourth">
                     <div class="head">&nbsp&nbsp信任学号（段）</div>
                     <div class="panel-body">
@@ -246,9 +246,8 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                     </form>
                     </div>
                 </div>
-                </div>
-
-            </div>
+        	</div>
+        </div>
     </div>
 
     <?php include('./partial/footer.php') ?>
@@ -294,7 +293,7 @@ $(document).ready(function(){
         $("#fourth").show(800);
         $("#config").hide(800);
     });
-    $("#config").click(function(){
+    $("#pwd").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").hide(800);
