@@ -32,9 +32,12 @@ session_start();
           if (!empty($_POST['username']) && !empty($_POST['passwd'])) {
               $username = $_POST['username'];
               $passwd = md5($_POST['passwd']);
-              if ($username = 'nginx' && $passwd = '64ca4409cb77ebb70d878309180f0d0a') {
+              $connect = new PDO('sqlite:./db/db.sqlite');
+              $loginstmt = $connect->prepare('SELECT * FROM account WHERE username = ? and passwd = ?');
+              $loginstmt->execute(array($username, $passwd));
+              if ($loginstmt->fetchAll()) {
                   $_SESSION['valid'] = true;
-                  $_SESSION['username'] = $_POST['username'];
+                  $_SESSION['username'] = $username;
                   header("Location:./admin.php");
                   exit();
               }

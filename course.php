@@ -123,6 +123,7 @@ if ($addtrustlist) {
 				VALUES ('$addtrustlist');");
 }
 //End ADD trustlist
+
 //Begin DEL trustlist
 $deltrustlist = strip_tags($_POST['deltrustlist']);
 if ($deltrustlist) {
