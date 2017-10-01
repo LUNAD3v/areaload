@@ -214,6 +214,16 @@ if ($dlcourseid) {
 }
 //End Download course
 
+//Begin Change Password
+$newpasswd = $_POST['passwd'];
+$newhash = md5($newpasswd);
+$username = $_SESSION['username'];
+if ($newhash){
+
+$connect->exec("UPDATE 'account'
+                SET passwd = '$newhash'
+                WHERE username = '$username';");
+}
 if (!$dlcourseid) {
     header("Location: ./admin.php");
     exit();

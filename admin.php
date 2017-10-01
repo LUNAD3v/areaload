@@ -60,7 +60,6 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
         }
         .li {
             height: 80px;
-
         }
         .glyphicon {
             float: right;
@@ -70,7 +69,6 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
         .badge {
             border-radius:200px;
             background:rgb(0,176,240);
-
         }
     </style>
 </head>
@@ -83,6 +81,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                 <li id="categorymanage">&nbsp&nbsp分类管理<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li class="tickets">&nbsp&nbspTickets<span class="glyphicon glyphicon-chevron-right"></span></li>
                 <li id="trustlist">&nbsp&nbsp信任学号（段）<span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li id="config">&nbsp&nbsp修改密码<span class="glyphicon glyphicon-chevron-right"></span></li>
             </ul>
         </div>
         <div class="col-md-9">
@@ -231,6 +230,22 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
 
                   </div>
                 </div>
+                <div id="config">
+                    <div class="head">&nbsp&nbsp密码修改</div>
+                    <div class="panel-body">
+
+                    <form action="course.php" method="post">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <input type="password" name="passwd" class="form-control" placeholder="新密码" required>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <button class="btn btn-lg btn-danger btn-block" input type="submit">修改密码</button>
+                        </div>
+                    </div>
+                    </form>
+                    </div>
+                </div>
                 </div>
 
             </div>
@@ -256,24 +271,35 @@ $(document).ready(function(){
         $("#second").hide(800);
         $("#third").hide(800);
         $("#fourth").hide(800);
+        $("#config").hide(800);
     });
     $("#categorymanage").click(function(){
         $("#first").hide(800);
         $("#second").show(800);
         $("#third").hide(800);
         $("#fourth").hide(800);
+        $("#config").hide(800);
      });
     $(".tickets").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").show(800);
         $("#fourth").hide(800);
+        $("#config").hide(800);
     });
     $("#trustlist").click(function(){
         $("#first").hide(800);
         $("#second").hide(800);
         $("#third").hide(800);
         $("#fourth").show(800);
+        $("#config").hide(800);
+    });
+    $("#config").click(function(){
+        $("#first").hide(800);
+        $("#second").hide(800);
+        $("#third").hide(800);
+        $("#fourth").hide(800);
+        $("#config").show(800);
     });
 });
 </script>

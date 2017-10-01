@@ -152,7 +152,7 @@ $FileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
 		}
 		else
 		{
-			echo "文件格式不正确，请确认文件后缀名为zip、7z或者rar";
+			echo "文件格式不正确！";
 		}
         $correctname= $uploaddir . $coursecategoryid . "/" .  $courseid . "/" . $stunumber . "-" . $_FILES['userfile']['name'];
         rename($uploadfile,$correctname);
