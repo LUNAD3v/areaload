@@ -36,8 +36,9 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
             height: 50px;
             width: 100%;
             line-height: 50px;
+            font-size: 1.2em;
             border-bottom:0.5px solid rgba(22,117,199,0.8);
-
+            border-radius: 4px;
         }
         .leftside>li:hover {
             background: rgba(22,117,199,0.8);
@@ -52,19 +53,28 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
             line-height: 50px;
             font-size: 1.2em;
             border-bottom:0.5px solid rgba(84,215,149,0.8);
+            color: white;
         }
         .bu {
             border: 0px;
+            padding: 1px 4px;
             float: left;
-            margin-left: 5px;
+            margin:0px 7px;
+            border-radius: 3px;
         }
         .li {
             height: 80px;
+        }
+        .li #reset, .li #del {
+            float: right;
+            background: #e00;
+            color:white;
         }
         .glyphicon {
             float: right;
             color: rgb(22,117,199);
             line-height: 50px;
+            margin-right: 10px;
         }
         .badge {
             border-radius:200px;
@@ -103,12 +113,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         echo $eachcoursecategory . " / " . "<b>" . $eachcoursename . "</b>";
 
                         echo "<form action=\"course.php\" method=\"post\">";
-                        echo "<ul><li><input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
-                        echo "<input type=\"hidden\" name=\"rstcategoryid\" value=\"$eachcoursecategoryid\"></input>";
-                        echo "<button class=\"bu\" input type=\"submit\">重置</button>";
-                        echo "</form></li>";
-
-                        echo "<li><form action=\"edit.php\" method=\"post\">";
+                        echo "<ul><li><form action=\"edit.php\" method=\"post\">";
                         echo "<input type=\"hidden\" name=\"editcourseid\" value=\"$eachcourseid\"></input>";
                         echo "<button class=\"bu\" input type=\"submit\">修改</button>";
                         echo "</form></li>";
@@ -119,15 +124,21 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         echo "</form></li>";
 
                         echo "<li><form action=\"course.php\" method=\"post\">";
-                        echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
-                        echo "<input type=\"hidden\" name=\"delcoursecategory\" value=\"$eachcoursecategoryid\"></input>";
-                        echo "<button class=\"bu\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
-                        echo "</form></li>";
-
-                        echo "<li><form action=\"course.php\" method=\"post\">";
                         echo "<input type=\"hidden\" name=\"dlcategoryid\" value=\"$eachcoursecategoryid\"></input>";
                         echo "<input type=\"hidden\" name=\"dlcourseid\" value=\"$eachcourseid\"></input>";
                         echo "<button class=\"bu\" input type=\"submit\">收作业</button>";
+                        echo "</form></li>";
+
+                        echo "<li><form action=\"course.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"delcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<input type=\"hidden\" name=\"delcoursecategory\" value=\"$eachcoursecategoryid\"></input>";
+                        echo "<button class=\"bu\" id=\"del\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
+                        echo "</form></li>";
+
+
+                        echo "<li><input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<input type=\"hidden\" name=\"rstcategoryid\" value=\"$eachcoursecategoryid\"></input>";
+                        echo "<button class=\"bu\" id=\"reset\" input type=\"submit\">重置</button>";
                         echo "</form></li></ul>";
 
                         echo "</li>";
