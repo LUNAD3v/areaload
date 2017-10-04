@@ -112,7 +112,6 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         echo "<span class=\"badge\">". $count . "</span>";
                         echo $eachcoursecategory . " / " . "<b>" . $eachcoursename . "</b>";
 
-                        echo "<form action=\"course.php\" method=\"post\">";
                         echo "<ul><li><form action=\"edit.php\" method=\"post\">";
                         echo "<input type=\"hidden\" name=\"editcourseid\" value=\"$eachcourseid\"></input>";
                         echo "<button class=\"bu\" input type=\"submit\">修改</button>";
@@ -135,8 +134,8 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         echo "<button class=\"bu\" id=\"del\" name=\"delcourseid\" value=\"$eachcourseid\" input type=\"submit\">删除</button>";
                         echo "</form></li>";
 
-
-                        echo "<li><input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
+                        echo "<li><form action=\"course.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"rstcourseid\" value=\"$eachcourseid\"></input>";
                         echo "<input type=\"hidden\" name=\"rstcategoryid\" value=\"$eachcoursecategoryid\"></input>";
                         echo "<button class=\"bu\" id=\"reset\" input type=\"submit\">重置</button>";
                         echo "</form></li></ul>";
