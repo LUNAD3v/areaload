@@ -42,7 +42,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
         .leftside>li:hover {
             background: rgba(22,117,199,0.8);
         }
-        #second,#third,#fourth {
+        #second, #third, #fourth, #config {
             display: none;
         }
         .head{
