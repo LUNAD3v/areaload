@@ -101,19 +101,6 @@ function random_str($type = 'alphanum', $length = 8)
 }
 
 $connect = new PDO('sqlite:./db/db.sqlite');
-$addcoursename = $_POST['addcoursename'];
-$addcourseid = $_POST['addcourseid'];
-$addcourseinfo = $_POST['addcourseinfo'];
-$addcoursedemand = $_POST['addcoursedemand'];
-$addcategory = $_POST['addcategory'];
-$addcategoryid = $_POST['addcategoryid'];
-
-$delcategoryid = $_POST['delcategoryid'];
-
-$editcourseid = $_POST['editcourseid'];
-$editcoursename = $_POST['editcoursename'];
-$editcourseinfo = $_POST['editcourseinfo'];
-$editcoursedemand = $_POST['editcoursedemand'];
 
 //Begin ADD trustlist
 $addtrustlist = $_POST['addtrustlist'];
@@ -125,6 +112,7 @@ if ($addtrustlist) {
 //End ADD trustlist
 
 //Begin DEL trustlist
+$delcategoryid = $_POST['delcategoryid'];
 $deltrustlist = strip_tags($_POST['deltrustlist']);
 if ($deltrustlist) {
     $connect->exec("DELETE FROM 'trustlist'
@@ -133,6 +121,12 @@ if ($deltrustlist) {
 //End DEL trustlist
 
 //Begin ADD course
+$addcoursename = $_POST['addcoursename'];
+$addcourseid = $_POST['addcourseid'];
+$addcourseinfo = $_POST['addcourseinfo'];
+$addcoursedemand = $_POST['addcoursedemand'];
+$addcategory = $_POST['addcategory'];
+$addcategoryid = $_POST['addcategoryid'];
 if ($addcoursename && $addcourseid && $addcourseinfo && $addcoursedemand && $addcategory && $addcategoryid) {
     $addcategorydir = "./upload/" . $addcategoryid;
     mkdir($addcategorydir);
@@ -171,7 +165,7 @@ if ($delcategoryid) {
 //Begin DEL ticket
 $delticket = $_POST['delticket'];
 $delticketcourseid = $_POST['delticketcourseid'];
-if ($delticket) {
+if ($delticket && $delticketcourseid) {
     $connect->exec("DELETE FROM 'problem'
 				WHERE number= '$delticket' AND courseid = '$delticketcourseid';");
     $connect->exec("DELETE FROM 'uploaded'
@@ -180,6 +174,10 @@ if ($delticket) {
 //End DEL ticket
 
 //Begin EDIT course
+$editcourseid = $_POST['editcourseid'];
+$editcoursename = $_POST['editcoursename'];
+$editcourseinfo = $_POST['editcourseinfo'];
+$editcoursedemand = $_POST['editcoursedemand'];
 if ($editcourseid && $editcoursename && $editcourseinfo && $editcoursedemand) {
     $connect->exec("UPDATE 'course'
 				SET name='$editcoursename',info='$editcourseinfo',demand='$editcoursedemand'

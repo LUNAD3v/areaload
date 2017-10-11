@@ -106,7 +106,7 @@ $trustlists = $connect->query("SELECT * FROM trustlist");
                         $eachcourseid = $course['id'];
                         $eachcoursecategory = $course['category'];
                         $eachcoursecategoryid = $course['categoryid'];
-                        $counts = $connect->query("SELECT COUNT(*) FROM uploaded WHERE course = '$eachcourseid';");
+                        $counts = $connect->query("SELECT DISTINCT COUNT(*) FROM uploaded WHERE course = '$eachcourseid';");
                         $count = $counts->fetchColumn();
                         echo "<li class=\"list-group-item li\">";
                         echo "<span class=\"badge\">". $count . "</span>";
