@@ -218,8 +218,7 @@ if ($dlcourseid) {
 $newpasswd = $_POST['passwd'];
 $newhash = md5($newpasswd);
 $username = $_SESSION['username'];
-if ($newhash){
-
+if ($newhash && $newpasswd){
 $connect->exec("UPDATE 'account'
                 SET passwd = '$newhash'
                 WHERE username = '$username';");
