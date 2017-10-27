@@ -58,9 +58,11 @@
       </div><!--/ header -->
         <form action="request.php" method="post">
               <div class="row">
-                <div class="col-md-4 col-xs-4">
+				<div class="col-md-3 col-xs-3">
+				<b>请选择课程:</b>
+				</div>
+                <div class="col-md-3 col-xs-3">
                 <select name="courseid" required>
-                    <option hidden>▼&nbsp&nbsp点击选择课程</option>
                     <?php
                     $titlearray = $connect->query("SELECT DISTINCT category,categoryid FROM course;");
                     foreach ($titlearray as $title)
@@ -76,12 +78,12 @@
                     ?>
                 </select>
                 </div>
-                <div class="col-md-4 col-xs-4">
+                <div class="col-md-3 col-xs-3">
                   <input type="text" name="number" placeholder="学号" required>
-                </div><!-- col-md-6 col-xs-6-->
-                <div class="col-md-4 col-xs-4">
+                </div><!-- col-md-3 col-xs-3-->
+                <div class="col-md-3 col-xs-3">
                   <input type="text" name="phone" placeholder="手机号码" required>
-                </div><!-- col-md-6 col-xs-6-->
+                </div><!-- col-md-3 col-xs-3-->
               </div><!--row -->
               <textarea input type="text" class="form-control" rows="5" name="problem" placeholder="你遇到了什么问题需要重新上传？请简要说明" required></textarea>
               <div class="row">
